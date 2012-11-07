@@ -77,17 +77,24 @@
 				myt1.value='focused on click';
 				myt1.focus();
 			}
+            function Clear() {	
+				var myt1 = document.getElementById("t1");
+				myt1.value='';
+				myt1.focus();
+			}
         </script>
 	</head>
     <body id='mainbody'>
             <h1>Team Hearing</h1>
             <h2>Mobile Resources for Hearing Health Care v1.04</h2>
 
-			  <input type="hidden"/><br />
 			  <textarea rows="4" cols="50">This is a native app compiled for 5 mobile platform...</textarea><br /> 
 			  <input type="text" name="t1" placeholder="T1 name" required autofocus id='t1' /><br />
 			  <input type="text" name="t2" placeholder="T2 name" id='t2'/><br />
-			  <input type="button" style="width:200px;height:40px;" value="Auto Fill" onclick="Autofill()"><br />
+			  <input type="button" style="width:200px;height:40px;" value="Auto Fill" onclick="Autofill()">
+			  <input type="button" style="width:200px;height:40px;" value="Clear" onclick="Clear()">
+			  <br />
+			  <br />
 			
 			<!-- Login Form -->
 			<form action="#">
