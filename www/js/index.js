@@ -27,7 +27,9 @@ var app = {
         // This is an event handler function, which means the scope is the event.
         // So, we must explicitly called `app.report()` instead of `this.report()`.
         app.report('deviceready');
-		document.getElementById("t1").value='js written';
+		var myt1 = document.getElementById("t1");
+		myt1.value='focus is here';
+		myt1.focus();
     },
     report: function(id) {
         // Report the event in the console
