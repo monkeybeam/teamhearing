@@ -76,6 +76,17 @@
         <title>Team Hearing</title>
     </head>
     <body id='mainbody' class='bglandscape'>
+		<div class="app">
+            <div id="deviceready">
+                <p class="status pending blink">Connecting to Device</p>
+                <p class="status complete blink hide">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova-2.0.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
 		<div id="title">Team Hearing</div>
 		<p id="subtitle">Mobile Resources for Hearing Health Care v1.01</p>
 		<div>
@@ -117,16 +128,5 @@
 				Designed by Sensimetrics Corporation. Sponsored by NIDCD.
 			</p>
 		</div>
-		<div class="app">
-            <div id="deviceready">
-                <p class="status pending blink">Connecting to Device</p>
-                <p class="status complete blink hide">Device is Ready</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova-2.0.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
 </html>
