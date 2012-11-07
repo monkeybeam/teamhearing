@@ -3,14 +3,14 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.hello-world"
         version   = "2.0.0">
-    <name>Team Hearing</name>
+    <name>Hello World</name>
 
     <description>
-        Mobile Resources for Hearing Health Care.
+        Hello World sample application that responds to the deviceready event.
     </description>
 
-    <author href="http://bacsafra.com" email="dennis@bacsafra.com">
-        Dennis Bacsafra
+    <author href="http://phonegap.com" email="support@phonegap.com">
+        PhoneGap Team
     </author>
 
     <feature name="http://api.phonegap.com/1.0/device" />
