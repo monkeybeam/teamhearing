@@ -1,0 +1,1942 @@
+/* general */
+html {
+	height:100%;
+}
+body {
+	font:85%/0.9 arial, helvetica, sans-serif;
+	background-color:aliceblue;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+h1 {
+	font-size:36px;
+	margin:12px;
+}
+h2 {
+	font-size:30px;
+	margin:10px;
+	line-height:120%;
+}
+h3 {
+	font-size:24px;
+	margin:8px;
+}
+table {
+	margin-left:auto;
+	margin-right:auto;
+	border-spacing:8px;
+	font-size:20px;
+}
+input.Edit {
+	width:48px;
+	text-align:center;
+	font-family:Georgia, ..., serif;
+	font-size:16px;
+	font-weight:bold;
+	letter-spacing:2px;
+	background-color:lightblue;
+}
+Select {
+	vertical-align:middle;
+	width:300px;
+	text-align:left;
+	padding:0px;
+	margin-right:0px;
+	font-size:16px;
+}
+select {
+	vertical-align:middle;
+	width:300px;
+	text-align:left;
+	padding:0px;
+	margin-right:0px;
+	font-size:24px;
+}
+
+/* fit background to screen */
+#background {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+#content {
+	position:relative;
+	z-index:1;
+}
+
+/* activity */
+div.activity {
+	position:absolute;
+	top:14%;
+	left:2%;
+	height:84%;
+	width:96%;
+	font-size:256%;
+	text-align:center;
+	cursor:default;
+}
+div.splash {
+	position:absolute;
+	top:14%;
+	left:8%;
+	height:84%;
+	width:84%;
+	font-size:180%;
+	line-height: 110%;
+	text-align:center;
+	cursor:default;
+	z-index:0;
+}
+h1.message {
+	float: left;
+	vertical-align:top;
+	font-size:24px;
+	height:9%;
+	width:50%;
+	padding-left:2%;
+	z-index:9;
+}
+div.controls {
+	float:right;
+	height:10%;
+	width:32%;
+	padding-right:2%;
+	text-align:left;
+	z-index:99;
+}
+table.controls {
+	height:100%;
+	width:100%;
+	top:0%;
+	table-layout:fixed;
+}
+td.controls-green {
+	background: url(../images/button-control-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	vertical-align: middle; 
+	text-align: center; 
+	padding: 4px;
+	color: black;
+	text-shadow: gray 0.1em 0.1em 0.2em;
+	font-weight: 400;
+	font-size:24px;
+	font-family: impact, sans-serif;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+td.controls-blue {
+	background: url(../images/button-control-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	vertical-align: middle; 
+	text-align: center; 
+	padding: 4px;
+	color: black;
+	text-shadow: gray 0.1em 0.1em 0.2em;
+	font-weight: 400;
+	font-size:24px;
+	font-family: impact, sans-serif;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+td.repeat {
+	background: url(../images/button-repeat.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+td.next {
+	background: url(../images/button-next.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+img.controls {
+	height:100%;
+	z-index:99;	
+}
+
+td.settingname {
+	font-size:24px;
+	text-align:right;
+}
+
+/* yes-no table  */
+table.yesno {
+	height:50%;
+	width:50%;
+	top:0%;
+	table-layout:fixed;
+}	
+td.yes {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 32px;
+	width: 128px;
+	padding: 4px;
+	color: gray;
+	font-weight: bold;
+	font-size:42px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.yes_hot {
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 32px;
+	width: 128px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:42px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.no {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 32px;
+	width: 128px;
+	padding: 4px;
+	color: gray;
+	font-weight: bold;
+	font-size:42px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.no_hot {
+	background: url(../images/button-round-red.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 32px;
+	width: 128px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:42px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+
+img.console {
+	height:100%;
+}
+#leftpanel 	{
+	float: left;
+	width: 50%;
+}
+#rightpanel	{
+	float: left;
+	width: 50%;
+	height: 70%;
+}
+
+table.afc {
+	height:70%;
+	width:50%;
+	left:2%;
+	top:15%;
+	table-layout:fixed;
+	cellspacing:5%;
+}
+table.afc_short {
+	position:absolute;
+	height:50%;
+	width:100%;
+	top:20%;
+	table-layout:fixed;
+}
+td.afc_image {
+background: url(../images/glossy_blue_button_Clip_Art.png);
+	background-size: 96% 96%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: top; 
+	text-align: center;
+	vertical-align: bottom;
+	color: black;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+	border:4px solid;
+	border-radius: 16px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+	background-color: lightyellow;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+	cellspacing:5%;
+}
+img.card {
+}
+span.word {
+	top:-5%;
+	font-size:32px;
+	padding:2px 8px;
+	background:lightyellow;
+	border:2px solid;
+	border-radius: 16px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+	background-color: lightyellow;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+}
+span.smallword {
+	top:-5%;
+	font-size:16px;
+	padding:2px 8px;
+	background:lightyellow;
+	border:2px solid;
+	border-radius: 16px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+	background-color: lightyellow;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+}
+td.afc {
+	background: url(../images/glossy_blue_button_Clip_Art.png);
+	background-size: 96% 96%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size:24px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+td.afc_hot {
+	background: url(../images/glossy_green_button_Clip_Art.png);
+	background-size: 96% 96%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:24px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+td.afc_not {
+	background: url(../images/glossy_red_button_Clip_Art.png);
+	background-size: 96% 96%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:24px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+td.afc_disabled {
+	background: url(../images/glossy_darkgray_button_Clip_Art.png);
+	background-size: 96% 96%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center;
+	padding: 4px;
+	color: gray;
+	font-weight: bold;
+	font-size:24px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+img.crisp {	
+	height:75%;
+}
+div.console {
+	position:absolute;
+	height:30%;
+	width:100%;
+	left:43%;
+	top:36%;
+	z-index:99;
+}
+div.chances {
+	position:absolute;
+	height:5%;
+	bottom:10%;
+	width:60%;
+	left:20%;
+	text-align:center;
+}
+div.score {
+	position:absolute;
+	height:5%;
+	bottom:5%;
+	width:60%;
+	left:20%;
+	text-align:center;
+}
+#quit {
+	position:absolute;
+	height:6%;
+	bottom:1%;
+	right:1%;
+}
+
+#settingsbutton {
+	position: absolute;
+	top:2%;
+	left:2%;
+	height:8%;
+	border:2px solid;
+	border-radius: 16px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+	background-color: lightyellow;
+	opacity:0.95;
+	filter:alpha(opacity=95); 
+}
+
+table.settings {
+	display: none;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	table-layout:fixed;
+	border:2px solid;
+	border-radius: 16px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+	background-color: lightyellow;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+	z-index:100;
+}
+
+#bugbutton {
+	position: absolute;
+	top:2%;
+	left:8%;
+	height:8%;
+	border:2px solid;
+	border-radius: 16px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+	background-color: lightyellow;
+	opacity:0.95;
+	filter:alpha(opacity=95); 
+}
+
+div.debugbar {
+	display: none;
+	position:absolute;
+	font-size:14px;
+	line-height: 110%;
+	width:84%;
+	left:14%;
+	height:11%;
+	bottom:2%;
+	text-align:left;
+	border:2px solid;
+	border-radius: 16px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+	background-color: lightyellow;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+	z-index:10;
+}
+#bugbutton {
+	position:absolute;
+	bottom:10%;
+}
+
+div.buttonspace {
+	position:absolute;
+	left:50%;
+	top: 1%;
+	width:96%;
+	height: 150%;
+	margin-left:-48%;
+	font-size:256%;
+	text-align:center;
+	cursor:default;
+	background-color:red;
+	z-index:-1;
+}
+
+div.buttonspace1 {
+	position:absolute;
+	left:50%;
+	top: 0%;
+	width:15%;
+	height:100%;
+	margin-left:-48%;
+	font-size:256%;
+	text-align:center;
+	cursor:default;
+	background-color:red;
+}
+
+div.buttonspace2 {
+	position:absolute;
+	left:50%;
+	top: 0%;
+	width:20%;
+	height:80%;
+	margin-left:-30%;
+	font-size:256%;
+	text-align:center;
+	cursor:default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* AFC Tables  */
+td.AFC1 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 128px;
+	width: 192px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC1disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 128px;
+	width: 192px;
+	padding: 4px;
+	color: gray;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC2 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC2disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: gray;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC3 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC3disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC3hot {
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC4 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 128px;
+	width: 128px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC4disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 128px;
+	width: 128px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC4hot{
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 128px;
+	width: 128px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC5 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC5disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC5hot{
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC6 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 30%;
+	width: 30%;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC6disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 128px;
+	width: 128px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC6hot{
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 128px;
+	width: 128px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC12 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 124px;
+	width: 164px;
+	padding: 2px;
+	color: white;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC12disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 124px;
+	width: 164px;
+	padding: 2px;
+	color: gray;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC12hot {
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 124px;
+	width: 164px;
+	padding: 2px;
+	color: red;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC20 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 96px;
+	width: 128px;
+	padding: 0px;
+	color: white;
+	font-weight: bold;
+	font-size:32px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC20disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 96px;
+	width: 128px;
+	padding: 0px;
+	color: gray;
+	font-weight: bold;
+	font-size:32px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+td.AFC20hot {
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 96px;
+	width: 128px;
+	padding: 0px;
+	color: red;
+	font-weight: bold;
+	font-size:32px;
+	font-family: arial, sans-serif;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* old stuff */
+/* team hearing puzzle logo (not currently used) */
+td.logo {
+	background: url(../images/teampuzzle.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle;
+	height: 128px; 
+	width: 128px;
+}
+span.logotext {
+	font-size: 48px;
+	font-family: impact, sans-serif;
+	text-align: left;
+}
+span.logotext2 {
+	font-size: 36px;
+	font-family: arial, sans-serif;
+	font-style: italic;
+	text-align: left;
+}
+
+/* Home Page Modules */
+img.Module {
+	width:250px;
+	margin:8px;
+}
+td.modulebutton {
+	background: url(../images/button-module.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	vertical-align: middle;
+	height: 140px; 
+	width: 260px;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	font-size: 36px;
+	font-family: impact, sans-serif;
+	text-align: left;
+}
+td.modulebutton:hover {
+	background: url(../images/button-module-hot.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	color: blue;
+}
+td.modulebutton:active {
+	color:green;
+}
+hr {
+	margin: 0px;
+}
+span.moduletext {
+	line-height: 100%;
+	font-family: impact, sans-serif;
+	font-size: 22px;
+	font-weight: normal;
+	vertical-align: bottom;	
+}
+span.moduletext2 {
+	line-height: 100%;
+	font-size: 16px;
+	font-family: arial, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	text-align: left;
+}
+td.moduleSHS {
+	background: url(../images/icon-SHS.png);
+	background-size: 90% 80%;
+	background-repeat: no-repeat;
+	background-position:right;
+	vertical-align: middle;
+	width: 60px;
+}
+td.moduleCARE {
+	background: url(../images/icon-CARE.png);
+	background-size: 90% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+td.modulepercept {
+	background: url(../images/icon-percept.png);
+	background-size: 90% 90%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle;
+	width: 60px;
+}
+td.modulesingalong {
+	background: url(../images/icon-singalong.png);
+	background-size: 90% 90%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle;
+	width: 60px;
+}
+td.modulebinaural {
+	background: url(../images/icon-binaural.png);
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	height: 100px; 
+	width: 100px;
+}
+td.moduleenvironmental {
+	background: url(../images/icon-environmental.png);
+	background-size: 100% 60%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+td.moduleaudiobooks {
+	background: url(../images/icon-audiobooks.png);
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+td.moduleuwm {
+	background: url(../images/icon-uwm.png);
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	height: 100px;
+	width: 100px;
+}
+td.modulebel {
+	background: url(../images/icon-bel.png);
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	height: 100px;
+	width: 100px;
+}
+td.modulespin {
+	background: url(../images/icon-spin.png);
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	height: 100px;
+	width: 100px;
+}
+/* buttons created for My Profile */
+td.moduleAudiogram {
+	background: url(../images/icon-equalizer.png);
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+td.moduleHistory {
+	background: url(../images/icon-clock.png);
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+td.moduleDevices {
+	background: url(../images/icon-hearingdevices.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+td.moduleTeam {
+	background: url(../images/icon-teamhearing.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+td.moduleResults {
+	background: url(../images/icon-results.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:right; 
+	vertical-align: middle; 
+	width: 60px;
+}
+
+/* left and right ears */
+td.leftear {
+	background: url(../images/icon-ear-left.png);
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+}
+td.rightear {
+	background: url(../images/icon-ear-right.png);
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+}
+	
+/* city color background for login page */
+body.citycolor {
+	background: url(../images/background-citycolor.jpg);
+	background-size: 120% 111%;
+	background-position: center; 
+	height: 50%;
+	font-family: adobe, sans-serif;
+	font-weight: bold;
+	color: white;
+	padding: 5%;
+}
+div.citycolor {
+	background: url(../images/background-citycolor.png);
+	background-size: 110% 100%;
+	background-position: center; 
+	height: 50%;
+	font-family: adobe, sans-serif;
+	font-weight: bold;
+	color: white;
+	padding: 5%;
+}
+
+/* Divisions */
+div.Main {
+	position:absolute;
+	top:8%;
+	left:50%;
+	width:96%;
+	margin-left:-48%;
+	font-size:24px;
+	text-align:center;
+	cursor:default;
+}
+div.SingAlong {
+	position:absolute;
+	top:12%;
+	left:50%;
+	width:64%;
+	margin-left:-48%;
+	font-size:24px;
+	text-align:center;
+	cursor:default;
+}
+div.Title {
+	display:block;
+	font-size:30px;
+	text-align:center;
+	margin:6%;
+}
+div.Activity {
+	display:block;
+	font-size:30px;
+	text-align:center;
+	padding-top:16px;
+	padding-bottom:16px;
+	padding-left:16px;
+	padding-right:16px;
+}
+div.Division {
+	display:block;
+	font-size:30px;
+	text-align:center;
+	margin-left:10%;
+	margin-right:10%;	
+}
+div.Outline {
+	display:none;
+	font-size:30px;
+	text-align:left;
+}
+div.paddedborder {
+	display:block;
+	font-size:32px;
+	text-align:center;
+	margin-left:128px;
+	margin-right:128px:;
+	width:768px;
+	border:2px solid #a1a1a1;
+	padding:10px 40px; 
+	background:#dddddd;
+	border-radius:25px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+}
+
+/* slider */
+#container {
+	position:absolute;
+	left:50%;
+	width:600px;
+	margin-left:-300px;
+}
+#middlecontent{
+	position:absolute;
+	left:50%;
+	width:580px;
+	margin-left:-290px;
+}
+.slider{
+	left:50%;
+	margin-left:-200px;
+}
+
+/* -------- */
+/* Activity */
+/* Control Buttons */
+input.Control {
+	width:120px;
+	vertical-align:middle;
+	text-align:center;
+	padding:5px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:8px;
+	font-family:Georgia, ..., serif;
+	font-size:16px;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+div.go {
+	width:200px;
+	z-index:99;
+}
+img.go {
+	width:200px;
+	z-index:99;
+}
+div.wrong {
+	width:200px;
+	position:absolute;
+	top:20%;
+	left:50%;
+	margin-left:-100px;
+	z-index:99;
+}
+img.wrong {
+	width:200px;
+	z-index:99;
+}
+img.forward {
+	width:144px;
+	z-index:99;
+}
+
+/* styled menu buttons */
+td.buttonplay {
+	background: url(../images/button-square-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 128px; 
+	width: 256px;
+	color: white;
+	font-weight: bold;
+	font-size:24px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+	line-height:120%;
+}
+td.buttonplay:hover {
+	color:aqua;
+	font-size:26px;
+}
+td.buttonplay:active {
+	color:green;
+	font-size:24px;
+}
+
+/* Response Buttons (old version) */
+input.Small {
+	width:120px;
+	height:60px;
+	vertical-align:middle;
+	text-align:center;
+	margin:12px;
+	font-family:Georgia, ..., serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+input.Medium {
+	width:400px;
+	height:60px;
+	vertical-align:middle;
+	text-align:center;
+	padding:5px;
+	margin:12px;
+	font-family:Georgia, ..., serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+nput.MediumSHS {
+	width:200px;
+	height:80px;
+	vertical-align:middle;
+	text-align:center;
+	white-space: normal;
+	padding:5px;
+	margin-left:8px;
+	margin-right:8px;
+	margin-top:8px;
+	margin-bottom:8px;
+	font-family:Georgia, ..., serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+input.Large {
+	width:200px;
+	height:200px;
+	vertical-align:middle;
+	text-align:center;
+	padding:5px;
+	margin:12px;
+	font-family:Georgia, ..., serif;
+	font-size:24px;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+input.Long {
+	width:360px;
+	vertical-align:middle;
+	text-align:center;
+	padding:5px;
+	margin-left:8px;
+	margin-right:8px;
+	margin-top:8px;
+	margin-bottom:8px;
+	font-family:Georgia, ..., serif;
+	font-size:16px;
+	font-weight:bold;
+	letter-spacing:2px;
+}
+
+/* styled response buttons (as table elements) */
+td.table2 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table2disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center; 
+	vertical-align: middle; 
+	text-align: center; 
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: gray;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table3 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+
+td.table3disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table3large {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 192px;
+	width: 256px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+
+td.table3uwm {
+	vertical-align: middle;
+	text-align: center;
+	height: 180px;
+	width: 180px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+
+td.table3medium {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 90px;
+	width: 320px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:22px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table3largedisabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 192px;
+	width: 256px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table4 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table4disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table6 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table6disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 152px;
+	width: 200px;
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size:48px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table12 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 124px;
+	width: 164px;
+	padding: 2px;
+	color: white;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table12disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 124px;
+	width: 164px;
+	padding: 2px;
+	color: gray;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table12hot {
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 124px;
+	width: 164px;
+	padding: 2px;
+	color: red;
+	font-weight: bold;
+	font-size:36px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table20 {
+	background: url(../images/button-round-blue.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 96px;
+	width: 128px;
+	padding: 0px;
+	color: white;
+	font-weight: bold;
+	font-size:32px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table20disabled {
+	background: url(../images/button-round-white.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 96px;
+	width: 128px;
+	padding: 0px;
+	color: gray;
+	font-weight: bold;
+	font-size:32px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+td.table20hot {
+	background: url(../images/button-round-green.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position:center; 
+	vertical-align: middle;
+	text-align: center;
+	height: 96px;
+	width: 128px;
+	padding: 0px;
+	color: red;
+	font-weight: bold;
+	font-size:32px;
+	font-family: arial, sans-serif;
+	cursor:pointer;
+}
+
+/* Menus */
+div.NewMessageNotice {
+	position:absolute;
+	top:50px;
+	left:20px;
+	padding:8px;
+	text-align:left;
+	font-family:Georgia, ..., serif;
+	font-size:14px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+/* Menus */
+div.Menu {
+	position:absolute;
+	top:1%;
+	left:1%;
+	padding:8px;
+	text-align:left;
+	font-family:Georgia, ..., serif;
+	font-size:18px;
+	font-weight:bold;
+	cursor:pointer;
+}
+img.Menu {
+	height:32px;
+}
+div.menutopright {
+	z-index:99;
+	position:absolute;
+	top:1%;
+	right:1%;
+	padding:8px;
+	text-align:left;
+	font-family:Georgia, ..., serif;
+	font-size:18px;
+	font-weight:bold;
+	cursor:pointer;
+}
+img.menutopright {
+	height:32px;
+}
+* {padding:0; margin:0}
+.dropdown {
+	position:absolute;
+	top:1%;
+	right:1%;
+	padding:8px;
+}
+.dropdown dt {
+	width:188px;
+	border:2px solid #9ac1c9;
+	padding:8px;
+	font-weight:bold;
+	cursor:pointer;
+	background:url(images/header.gif)
+}
+.dropdown dt:hover {
+	background:url(images/header_over.gif)
+}
+.dropdown dd {
+	position:absolute;
+	overflow:hidden;
+	width:208px;
+	display:none;
+	background:#fff;
+	z-index:200;
+	opacity:0
+}
+.dropdown ul {
+	width:204px;
+	border:2px solid #9ac1c9;
+	list-style:none;
+	border-top:none
+}
+.dropdown li {
+	display:inline
+}
+.dropdown a, 
+.dropdown a:active, 
+.dropdown a:visited {
+	display:block; 
+	padding:5px; color:#333; 
+	text-decoration:none; 
+	background:#eaf0f2; 
+	width:194px
+}
+.dropdown a:hover {
+	background:#d9e1e4;
+	color:#000
+}
+.dropdown .underline {
+	border-bottom:1px solid #b9d6dc
+}
+
+footer.submenu {
+	display:table;
+	position:fixed;
+	bottom:3%;
+	right:3%;
+}
+div.submenu {
+	display:table-cell;
+	width:104px;
+	height:120px;
+}
+footer.submenu2 {
+	display:table;
+	position:fixed;
+	bottom:5%;
+	right:10%;
+}
+div.submenu2 {
+	display:table-cell;
+	width:800px;
+	height:60px;
+}
+
+img.bookcover {
+	width:200px; 
+	margin:16px;
+}
+
+img.roundedcorners {
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;	
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+div.leftpanel {
+	float:left;
+	width:48%;
+	margin-right:0px;
+}
+div.rightpanel {
+	float:right;
+	width:48%;
+	margin-right:0px;
+}
+
+/* AudioBooks */
+div.pages {
+	height:360px;
+	z-index:-1;
+	font-size:18px;
+	text-align:left
+}
+input.pageturn {
+	width:140px;
+	height:64px;
+	vertical-align:middle;
+	text-align:center;
+	white-space:normal;
+	padding:5px;
+	margin-left:16px;
+	margin-right:16px;
+	font-family:Georgia, ..., serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:2px;
+	z-index:1;
+}
+img.illustration {
+	float:left;
+	margin-right:8px;
+	margin-bottom:8px;
+}
+
+/* sing along */
+body.SingAlong {
+	background-image:url(../images/background-singalong.png);
+	background-size:120% 120%;
+	font-family:sans-serif ;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+/* sticky footer */
+.wrapper {
+	min-height: 98%;
+	height: auto !important;
+	height: 98%;
+	margin: 0 auto -2em;
+	}
+.footer, .push {
+	height: 1em;
+	text-align:center;
+	background-color:aqua;
+	
+}
+.Stats {
+	font-size:12px;
+	margin-top:10px;
+	text-align:center;
+}
+.stat {
+	margin-left:16px;
+	margin-right:16px;
+}
+
+/* Rating System Style */
+
+.star_rating {
+	display: block; 
+	margin-left: auto;
+	margin-right: auto;
+	width: 84px; 
+	height: 16px; 
+	background-image: url(../images/starsmap.png); 
+	background-repeat: no-repeat;
+}
+
+.star_zero { 
+	background-position: 0px 0px; 
+}
+
+.star_one { 
+	background-position: 0px -18px; 
+}
+
+.star_two {
+	background-position: 0px -56px; 
+}
+
+.star_three { 
+	background-position: 0px -94px; 
+}
+
+.star_four { 
+	background-position: 0px -132px; 
+}
+
+.star_five { 
+	background-position: 0px -170px; 
+}
+
+/* Level Selection Style */
+
+#categorylevelselection {
+display: block;
+width: 660x;
+margin-left: auto ;
+margin-right: auto ;
+}
+
+#actionlevelselection {
+display: block;
+width: 660x;
+margin-left: auto ;
+margin-right: auto ;
+}
+
+#alllevels {
+width: 490px;
+margin-left: auto ;
+margin-right: auto ;
+}
+
+#alllevels4inrow {
+width: 640px;
+margin-left: auto ;
+margin-right: auto ;
+}
+
+.onecategorylevel {
+width:210px;
+height:230px;
+float:left;
+}
+
+.onelevel {
+width:160px;
+height:180px;
+float:left;
+}
+
+.clear {
+clear:both;
+}
