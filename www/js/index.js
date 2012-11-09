@@ -25,11 +25,11 @@ window.onload = init;
  
 function init() {
 	alert("init");
-	document.addEventListener('deviceready', onDeviceReady, false);
+	document.addEventListener("deviceready", onDeviceReady, false);
 }
 
  function onDeviceReady() {
-		window.clearInterval(intervalID);
+		alert("onDeviceReady");
 		// set to true 
 		isPhoneGapReady = true; 
 		alert(' The device is now ready'); 
