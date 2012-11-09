@@ -24,11 +24,12 @@ var isPhoneGapReady = false;
 window.onload = init;
  
 function init() {
-        document.addEventListener('deviceready', onDeviceReady, false);
- }
+	alert("init");
+	document.addEventListener('deviceready', onDeviceReady, false);
+}
 
  function onDeviceReady() {
-		window.clearInterval( intervalID);
+		window.clearInterval(intervalID);
 		// set to true 
 		isPhoneGapReady = true; 
 		alert(' The device is now ready'); 
