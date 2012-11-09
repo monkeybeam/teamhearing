@@ -61,6 +61,7 @@ function report(id) {
 	document.querySelector('#' + id + ' .pending').className += ' hide';
 	var completeElem = document.querySelector('#' + id + ' .complete');
 	completeElem.className = completeElem.className.split('hide').join('');
+	document.getElementById("checkisphonegapready").value=isPhoneGapReady;		
 }
 
 function deviceDetection() { 
@@ -73,6 +74,6 @@ function deviceDetection() {
 			case "WinCE": isWindows = true; break; 
 		}
 		//alert(" Detected you are using a " + device.platform); 
-		document.getElementByID("checkdeviceplatform").value=device.platform;		
+		document.getElementById("checkdeviceplatform").value=device.platform;		
 	}
 }
