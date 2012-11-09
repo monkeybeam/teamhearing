@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://bacsafra.com"
         id        = "com.bacsafra.iosdev"
-        version   = "1.0.6">
+        version   = "2.0.1">
     <name>Team Hearing</name>
 
     <description>
