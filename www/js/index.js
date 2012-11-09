@@ -23,6 +23,7 @@ var isPhoneGapReady = false;
 var isAndroid = false; 
 var isBlackberry = false; 
 var isIphone = false; 
+var isIpad = false; 
 var isWindows = false; 
 // Store the device's uuid 
 var deviceUUID;
@@ -32,24 +33,22 @@ var deviceUUID;
 window.onload = init;
  
 function init() {
-	alert("init");
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
 
  function onDeviceReady() {
-	alert("onDeviceReady");
 	// set to true 
 	isPhoneGapReady = true; 
-	alert(' The device is now ready'); 
+	
+	// detect the device's platform 
+	deviceUUID = device.uuid;
+	deviceDetection();
+	
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
 	//var mytarea = document.getElementById("tarea");
 	//mytarea.value='This is a native app compiled for 5 mobile platforms...';
-	
-	// detect the device's platform 
-	deviceUUID = device.uuid;
-	deviceDetection();
 }
 
 function report(id) {
@@ -70,8 +69,10 @@ function deviceDetection() {
 			case "Android": isAndroid = true; break; 
 			case "Blackberry": isBlackberry = true; break; 
 			case "iPhone": isIphone = true; break; 
+			case "iPad": isIpad = true; break; 
 			case "WinCE": isWindows = true; break; 
 		}
-		alert(" Detected you are using a " + device.platform); 
+		//alert(" Detected you are using a " + device.platform); 
+		document.getElementByID("checkdeviceplatform").value=device.platform;		
 	}
 }
