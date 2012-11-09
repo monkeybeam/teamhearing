@@ -16,21 +16,30 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    initialize: function() {
-        this.bind();
-    },
-    bind: function() {
-        document.addEventListener('deviceready', this.deviceready, false);
-    },
-    deviceready: function() {
+
+ //Global variable that will tell us whether PhoneGap is ready 
+var isPhoneGapReady = false;  
+
+// Set an onload handler to call the init function 
+window.onload = init;
+ 
+function init() {
+        document.addEventListener('deviceready', onDeviceReady, false);
+ }
+
+ function onDeviceReady() {
+		window.clearInterval( intervalID);
+		// set to true 
+		isPhoneGapReady = true; 
+		alert(' The device is now ready'); 
         // This is an event handler function, which means the scope is the event.
         // So, we must explicitly called `app.report()` instead of `this.report()`.
-        app.report('deviceready');
+        report('deviceready');
 		var mytarea = document.getElementById("tarea");
 		mytarea.value='This is a native app compiled for 5 mobile platforms...';
-    },
-    report: function(id) {
+}
+
+function report(id) {
         // Report the event in the console
         console.log("Report: " + id);
 
@@ -40,5 +49,4 @@ var app = {
         document.querySelector('#' + id + ' .pending').className += ' hide';
         var completeElem = document.querySelector('#' + id + ' .complete');
         completeElem.className = completeElem.className.split('hide').join('');
-    }
-};
+}
