@@ -44,8 +44,8 @@ function init() {
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
-	var mytarea = document.getElementById("tarea");
-	mytarea.value='This is a native app compiled for 5 mobile platforms...';
+	//var mytarea = document.getElementById("tarea");
+	//mytarea.value='This is a native app compiled for 5 mobile platforms...';
 	
 	// detect the device's platform 
 	deviceUUID = device.uuid;
