@@ -61,8 +61,7 @@ function report(id) {
 	document.querySelector('#' + id + ' .pending').className += ' hide';
 	var completeElem = document.querySelector('#' + id + ' .complete');
 	completeElem.className = completeElem.className.split('hide').join('');
-	alert(isPhoneGapReady);
-	document.getElementById("checkisphonegapready").value="Yes";		
+	document.getElementById("checkisphonegapready").innerHTML="Yes";		
 }
 
 function deviceDetection() { 
@@ -74,7 +73,6 @@ function deviceDetection() {
 			case "iPad": isIpad = true; break; 
 			case "WinCE": isWindows = true; break; 
 		}
-		document.getElementById("checkdeviceplatform").value=device.platform;		
-		alert(" Detected you are using a " + device.platform); 
+		document.getElementById("checkdeviceplatform").innerHTML=device.platform;		
 	}
 }
