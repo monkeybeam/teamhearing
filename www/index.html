@@ -90,7 +90,31 @@
 			width: 100px;
 			height:50px;
 		}
-		
+
+		table.sample {
+			border-width: 1px;
+			border-spacing: 2px;
+			border-style: outset;
+			border-color: gray;
+			border-collapse: separate;
+			background-color: white;
+		}
+		table.sample th {
+			border-width: 1px;
+			padding: 1px;
+			border-style: inset;
+			border-color: gray;
+			background-color: white;
+			-moz-border-radius: ;
+		}
+		table.sample td {
+			border-width: 1px;
+			padding: 1px;
+			border-style: inset;
+			border-color: gray;
+			background-color: white;
+			-moz-border-radius: ;
+		}		
 		</style>		
         <script type="text/javascript">
             function Autofill() {	
@@ -118,12 +142,11 @@
 			
 			<br />
 			CHECKLIST FOR FRAMEWORK: <br />
-			<table style="margin-left:30px;border-width:1px;border-color:gray;">
+			<table class="sample">
 			<tr><td>isPhoneGapReady? </td><td><span id='checkisphonegapready'></span></td><td></td></tr>
 			<tr><td>Device Platform= </td><td><span id='checkdeviceplatform'></span></td><td></td></tr>
 			<tr><td>Network Status= </td><td><span id='checknetworkstatus'></span></td><td></td></tr>
-			<tr><td>jPlayer on web? </td><td><span id='checkjplayeronweb'></span></td><td></td></tr>
-			<tr><td>jPlayer on local? </td><td><span id='checkjplayeronlocal'></span></td><td></td></tr>
+			<tr><td>jPlayer? </td><td><span id='checkjplayer'>not available</span></td><td></td></tr>
 			<tr>
 				<td>HTML5 Audio? </td><td><span id='checkhtml5audio'></span></td>
 				<td>
