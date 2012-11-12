@@ -93,7 +93,7 @@ function play_sound(url){
 	}
 }
 
-function play_All() {
+function play_all() {
 	play_noise('gated.wav');
 	play_sound('starter.wav');
 	play_sound('beep.mp3');
