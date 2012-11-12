@@ -36,7 +36,14 @@ function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	if(html5_audio()) play_html5_audio = true;	
 	document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;			
-	play_noise("gated.wav");
+	//play_noise("gated.wav");
+	
+	var src1="data/gated.wav";
+	var src2="data/starter.wav";
+	var soundObj1 = new Media(src1,onSuccess,onError);
+	var soundObj2 = new Media(src2,onSuccess,onError);
+	soundObj1.play();
+	soundObj2.play();	
 }
 
  function onDeviceReady() {
