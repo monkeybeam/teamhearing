@@ -35,7 +35,6 @@ window.onload = init;
 function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	if(html5_audio()) play_html5_audio = true;	
-	play_noise('gated.wav')
 }
 
  function onDeviceReady() {
@@ -92,6 +91,12 @@ function play_sound(url){
 		sound.attr('autostart', true);
 		$('body').append(sound);
 	}
+}
+
+function play_All() {
+	play_noise('gated.wav');
+	play_sound('starter.wav');
+	play_sound('beep.mp3');
 }
 
 function report(id) {
