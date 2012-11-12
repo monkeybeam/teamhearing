@@ -176,7 +176,7 @@ function play_video(url) {
 						  +"<source src='"+videofile+".ogg' type='video/ogg'>"
 						  +"Your browser does not support the video tag."
 						+"</video>";
-		document.getElementById(videopanel).innerHTML=videocontent;
+		document.getElementById("videopanel").innerHTML=videocontent;
 }
 
 function play_all() {
