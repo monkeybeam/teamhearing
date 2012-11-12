@@ -61,11 +61,14 @@ function html5_audio(){
  
 function play_sound(url){
 	var audiopath="data/";
-	var noise="gated.wav";
+	var backgroundnoise="gated.wav";
 	if(play_html5_audio){
 		var snd = new Audio(audiopath + url);
 		snd.load();
 		snd.play();
+		var noise = new Audio(audiopath + backgroundnoise);
+		noise.load();
+		noise.play();
 	}else{
 		$("#sound").remove();
 		var sound = $("<embed id='sound' type='audio/mpeg' />");
