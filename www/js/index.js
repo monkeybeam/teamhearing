@@ -85,6 +85,7 @@ function createPlayers() {
 	var audiofile = "http://www.teamaudiology.org/data/percept/starter.wav";
 	var myPlayer = new Array();
 	var a=0;
+	var audiovolume=100;
 	var jplayername = "#jquery_jplayer_" + a;
 	alert (jplayername);
 	myPlayer[a] = new CirclePlayer(jplayername,
