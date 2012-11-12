@@ -94,7 +94,6 @@ function createPlayers() {
 	}, {
 		cssSelectorAncestor: cpcontainer,
 		swfPath: "jPlayer/js",
-		wmode: "window",
 		volume: audiovolume
 	});
 	alert("play " + audiofile);

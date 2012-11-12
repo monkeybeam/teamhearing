@@ -93,6 +93,7 @@ CirclePlayer.prototype = {
 				self.audio = $(this).data("jPlayer").htmlElement.audio;
 			}
 			$(this).jPlayer("setMedia", self.media);
+			alert(self.media);
 			//$(this).jPlayer("play");  //add to autoplay -Dennis
 			self._initCircleControl();
 		});
