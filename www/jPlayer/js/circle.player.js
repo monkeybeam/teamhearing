@@ -63,7 +63,9 @@ var CirclePlayer = function(jPlayerSelector, media, options) {
 	this.spriteRatio = 0.24; // Number of steps / 100
 
 	this.player = $(jPlayerSelector);
+	alert(this.player);
 	this.media = $.extend({}, media);
+	alert(this.media);
 	this.options = $.extend(true, {}, defaults, options); // Deep copy
 
 	this.cssTransforms = Modernizr.csstransforms;
