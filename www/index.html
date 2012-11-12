@@ -125,6 +125,7 @@
 			<tr><td>jPlayer on web? </td><td><span id='checkjplayeronweb'></span></td></tr>
 			<tr><td>jPlayer on local? </td><td><span id='checkjplayeronlocal'></span></td></tr>
 			<tr><td>HTML5 Audio? </td><td><span id='checkhtml5audio'></span></td></tr>
+			<tr><td>Media Position= </td><td><span id='checkmediaposition'></span></td></tr>
 			</table>
 			
 			<!-- Testing Input -->
@@ -140,6 +141,12 @@
 			<input type="button" class="testbutton" value="play starter.wav" onclick="play_sound('starter.wav')"><br />
 			<input type="button" class="testbutton" value="play gated.wav" onclick="play_noise('gated.wav')"><br />
 			<input type="button" class="testbutton" value="play all 3" onclick="play_all()"><br />
+			
+			<br />
+			<a href="#" class="btn large" onclick="playAudio('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3');">Play Audio</a>
+			<a href="#" class="btn large" onclick="pauseAudio();">Pause Playing Audio</a>
+			<a href="#" class="btn large" onclick="stopAudio();">Stop Playing Audio</a>
+			
 			<br />
 			
 			<!-- jPlayer container divs -->
