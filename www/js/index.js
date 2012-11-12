@@ -43,6 +43,7 @@ function init() {
 	// detect the device's platform 
 	deviceUUID = device.uuid;
 	deviceDetection();
+	createPlayers();
 	
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
@@ -75,4 +76,23 @@ function deviceDetection() {
 		}
 		document.getElementById("checkdeviceplatform").innerHTML=device.platform;		
 	}
+}
+
+function createPlayers() {
+	var cpcontainer = "#cp_container_0";
+	var audiofile = "http://www.teamaudiology.org/data/percept/starter.wav";
+	var myPlayer = new Array();
+	var a=0;
+	jplayername = "#jquery_jplayer_" + a;
+	myPlayer[a] = new CirclePlayer(jplayername,
+	{
+		wav: audiofile
+	}, {
+		cssSelectorAncestor: cpcontainer,
+		preload: "auto",
+		swfPath: "jPlayer/js",
+		wmode: "window",
+		volume: audiovolume
+	});
+	myPlayer[0].play();
 }
