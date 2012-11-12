@@ -38,14 +38,6 @@ function init() {
 	document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;			
 	//play_noise("gated.wav");
 	
-	// var src1="data/gated.wav";
-	// var src2="data/starter.wav";
-	// var soundObj1 = new Media(src1,onSuccess,onError);
-	// var soundObj2 = new Media(src2,onSuccess,onError);
-	// soundObj1.load();
-	// soundObj1.play();
-	// soundObj2.load();
-	// soundObj2.play();	
 }
 
  function onDeviceReady() {
@@ -65,81 +57,72 @@ function init() {
 	//mytarea.value='This is a native app compiled for 5 mobile platforms...';
 }
 
-        // Audio player
-        //
-        var my_media = null;
-        var mediaTimer = null;
+// PhoneGap Audio player
+var my_media = null;
+var mediaTimer = null;
+// Play audio
+function playAudio(src) {
+	// Create Media object from src
+	var audiofile="data/" + src;
+	my_media = new Media(audiofile, onSuccess, onError);
+	// Play audio
+	my_media.play();
+	// Update my_media position every second
+	if (mediaTimer == null) {
+		mediaTimer = setInterval(function() {
+			// get my_media position
+			my_media.getCurrentPosition(
+				// success callback
+				function(position) {
+					if (position > -1) {
+						setAudioPosition((position) + " sec");
+					}
+				},
+				// error callback
+				function(e) {
+					console.log("Error getting pos=" + e);
+					setAudioPosition("Error: " + e);
+				}
+			);
+		}, 1000);
+	}
+}
 
-        // Play audio
-        //
-        function playAudio(src) {
-            // Create Media object from src
-            my_media = new Media(src, onSuccess, onError);
+// Pause audio
+// 
+function pauseAudio() {
+	if (my_media) {
+		my_media.pause();
+	}
+}
 
-            // Play audio
-            my_media.play();
+// Stop audio
+// 
+function stopAudio() {
+	if (my_media) {
+		my_media.stop();
+	}
+	clearInterval(mediaTimer);
+	mediaTimer = null;
+}
 
-            // Update my_media position every second
-            if (mediaTimer == null) {
-                mediaTimer = setInterval(function() {
-                    // get my_media position
-                    my_media.getCurrentPosition(
-                        // success callback
-                        function(position) {
-                            if (position > -1) {
-                                setAudioPosition((position) + " sec");
-                            }
-                        },
-                        // error callback
-                        function(e) {
-                            console.log("Error getting pos=" + e);
-                            setAudioPosition("Error: " + e);
-                        }
-                    );
-                }, 1000);
-            }
-        }
+// onSuccess Callback
+function onSuccess() {
+	console.log("playAudio():Audio Success");
+}
 
-        // Pause audio
-        // 
-        function pauseAudio() {
-            if (my_media) {
-                my_media.pause();
-            }
-        }
+// onError Callback 
+function onError(error) {
+	alert('code: '    + error.code    + '\n' + 
+		  'message: ' + error.message + '\n');
+}
 
-        // Stop audio
-        // 
-        function stopAudio() {
-            if (my_media) {
-                my_media.stop();
-            }
-            clearInterval(mediaTimer);
-            mediaTimer = null;
-        }
+// Set audio position
+function setAudioPosition(position) {
+	document.getElementById('checkmediaposition').innerHTML = position;
+}
 
-        // onSuccess Callback
-        //
-        function onSuccess() {
-            console.log("playAudio():Audio Success");
-        }
-
-        // onError Callback 
-        //
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' + 
-                  'message: ' + error.message + '\n');
-        }
-
-        // Set audio position
-        // 
-        function setAudioPosition(position) {
-            document.getElementById('checkmediaposition').innerHTML = position;
-        }
-
-		
-
-
+// HTML 5 Audio Player
 function html5_audio(){
 	var a = document.createElement('audio');
 	return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
