@@ -170,14 +170,13 @@ function play_sound(url){
 }
 
 function play_video(url) {
-		var videopath="data/";
-		$("#videopanel").remove();
-		var videocontent = "<video width='320' height='240' controls='controls'>"
-						  +"<source src='"+videopath+url+".mp4' type='video/mp4'>"
-						  +"<source src='"+videopath+url+".ogg' type='video/ogg'>"
+		var videofile="data/"+url;
+		var videocontent = "<video width='320' height='240' controls='controls' autoplay='autoplay'>"
+						  +"<source src='"+videofile+".mp4' type='video/mp4'>"
+						  +"<source src='"+videofile+".ogg' type='video/ogg'>"
 						  +"Your browser does not support the video tag."
 						+"</video>";
-		$('videopanel').append(videocontent);
+		document.getElementById(videopanel).innerHTML=videocontent;
 }
 
 function play_all() {
