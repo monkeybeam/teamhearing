@@ -35,6 +35,8 @@ window.onload = init;
 function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	if(html5_audio()) play_html5_audio = true;	
+	document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;			
+	play_noise("gated.wav");
 }
 
  function onDeviceReady() {
@@ -77,6 +79,7 @@ function play_noise(url){
 }
 
 function play_sound(url){
+
 	var audiopath="data/";
 	if(play_html5_audio){
 		var snd = new Audio(audiopath + url);
