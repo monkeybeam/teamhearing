@@ -42,7 +42,9 @@ function init() {
 	var src2="data/starter.wav";
 	var soundObj1 = new Media(src1,onSuccess,onError);
 	var soundObj2 = new Media(src2,onSuccess,onError);
+	soundObj1.load();
 	soundObj1.play();
+	soundObj2.load();
 	soundObj2.play();	
 }
 
