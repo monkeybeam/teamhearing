@@ -134,7 +134,7 @@ function init() {
         // Set audio position
         // 
         function setAudioPosition(position) {
-            document.getElementById(checkmediaposition').innerHTML = position;
+            document.getElementById('checkmediaposition').innerHTML = position;
         }
 
 		
