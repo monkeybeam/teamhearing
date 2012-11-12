@@ -27,7 +27,7 @@ var isIpad = false;
 var isWindows = false; 
 // Store the device's uuid 
 var deviceUUID;
-
+var play_html5_audio = false;
 
 // Set an onload handler to call the init function 
 window.onload = init;
@@ -43,15 +43,38 @@ function init() {
 	// detect the device's platform 
 	deviceUUID = device.uuid;
 	deviceDetection();
-	alert("start creating jPlayers");
-	createPlayers();
-	alert("end creating jPlayers");
-	
+	//alert("start creating jPlayers");
+	//createPlayers();
+	//alert("end creating jPlayers");
+	alert("play beep.mp3");
+	if(html5_audio()) play_html5_audio = true;	
+	play_sound('beep.mp3');	
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
 	//var mytarea = document.getElementById("tarea");
 	//mytarea.value='This is a native app compiled for 5 mobile platforms...';
+}
+
+function html5_audio(){
+	var a = document.createElement('audio');
+	return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
+}
+ 
+function play_sound(url){
+	if(play_html5_audio){
+		var snd = new Audio(url);
+		snd.load();
+		snd.play();
+	}else{
+		$("#sound").remove();
+		var sound = $("<embed id='sound' type='audio/mpeg' />");
+		sound.attr('src', url);
+		sound.attr('loop', false);
+		sound.attr('hidden', true);
+		sound.attr('autostart', true);
+		$('body').append(sound);
+	}
 }
 
 function report(id) {
