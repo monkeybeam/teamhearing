@@ -34,6 +34,7 @@ window.onload = init;
  
 function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
+	if(html5_audio()) play_html5_audio = true;	
 }
 
  function onDeviceReady() {
@@ -46,9 +47,6 @@ function init() {
 	//alert("start creating jPlayers");
 	//createPlayers();
 	//alert("end creating jPlayers");
-	alert("play beep.mp3");
-	if(html5_audio()) play_html5_audio = true;	
-	play_sound('beep.mp3');	
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
@@ -62,8 +60,9 @@ function html5_audio(){
 }
  
 function play_sound(url){
+	var audiopath="data/";
 	if(play_html5_audio){
-		var snd = new Audio(url);
+		var snd = new Audio(audiopath + url);
 		snd.load();
 		snd.play();
 	}else{
