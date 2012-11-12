@@ -61,6 +61,7 @@ function html5_audio(){
  
 function play_sound(url){
 	var audiopath="data/";
+	var noise="gated.wav";
 	if(play_html5_audio){
 		var snd = new Audio(audiopath + url);
 		snd.load();
@@ -72,7 +73,13 @@ function play_sound(url){
 		sound.attr('loop', false);
 		sound.attr('hidden', true);
 		sound.attr('autostart', true);
-		$('body').append(sound);
+		$("#noise").remove();
+		var noise = $("<embed id='sound' type='audio/mpeg' />");
+		noise.attr('src', url);
+		noise.attr('loop', false);
+		noise.attr('hidden', true);
+		noise.attr('autostart', true);
+		$('body').append(sound + noise);
 	}
 }
 
