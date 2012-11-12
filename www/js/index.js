@@ -89,8 +89,8 @@ function playAudio(src) {
 }
 
 function playBoth() {
-	playSound("gated.wav");
-	playSound("starter.wav");
+	playAudio("gated.wav");
+	playAudio("starter.wav");
 }
 
 // Pause audio
