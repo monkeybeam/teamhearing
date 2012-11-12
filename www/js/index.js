@@ -66,7 +66,7 @@ function playAudio(src) {
 	var audiofile="data/" + src;
 	my_media = new Media(audiofile, onSuccess, onError);
 	// Play audio
-	my_media.play();
+	my_media.play({numberOfLoops:99});
 	// Update my_media position every second
 	if (mediaTimer == null) {
 		mediaTimer = setInterval(function() {
@@ -124,7 +124,7 @@ function onError(error) {
 
 // Set audio position
 function setAudioPosition(position) {
-	document.getElementById('checkmediaposition').innerHTML = position;
+	document.getElementById('checkmediaposition').innerHTML = "pos="+position;
 }
 
 // HTML 5 Audio Player
