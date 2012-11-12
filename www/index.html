@@ -119,13 +119,30 @@
 			<br />
 			CHECKLIST FOR FRAMEWORK: <br />
 			<table style="margin-left:30px;">
-			<tr><td>isPhoneGapReady? </td><td><span id='checkisphonegapready'></span></td></tr>
-			<tr><td>Device Platform= </td><td><span id='checkdeviceplatform'></span></td></tr>
-			<tr><td>Network Status= </td><td><span id='checknetworkstatus'></span></td></tr>
-			<tr><td>jPlayer on web? </td><td><span id='checkjplayeronweb'></span></td></tr>
-			<tr><td>jPlayer on local? </td><td><span id='checkjplayeronlocal'></span></td></tr>
-			<tr><td>HTML5 Audio? </td><td><span id='checkhtml5audio'></span></td></tr>
-			<tr><td>Media Position= </td><td><span id='checkmediaposition'></span></td></tr>
+			<tr><td>isPhoneGapReady? </td><td><span id='checkisphonegapready'></span></td><td></td></tr>
+			<tr><td>Device Platform= </td><td><span id='checkdeviceplatform'></span></td><td></td></tr>
+			<tr><td>Network Status= </td><td><span id='checknetworkstatus'></span></td><td></td></tr>
+			<tr><td>jPlayer on web? </td><td><span id='checkjplayeronweb'></span></td><td></td></tr>
+			<tr><td>jPlayer on local? </td><td><span id='checkjplayeronlocal'></span></td><td></td></tr>
+			<tr>
+				<td>HTML5 Audio? </td><td><span id='checkhtml5audio'></span></td>
+				<td>
+					<input type="button" class="testbutton" value="Play Sound" onclick="play_sound('starter.wav')">
+					<input type="button" class="testbutton" value="Play Noise" onclick="play_noise('gated.wav')">
+					<input type="button" class="testbutton" value="Play Both" onclick="play_all()">
+				</td>
+			</tr>
+			<tr>
+				<td>Media Position= </td><td><span id='checkmediaposition'></span></td>
+				<td>
+					<input type="button" class="testbutton" value="Play Sound" onclick="playAudio('starter.wav');">
+					<input type="button" class="testbutton" value="Play Noise" onclick="playAudio('gated.wav');">
+					<input type="button" class="testbutton" value="Play Both" onclick="playBoth();">
+					<br />
+					<input type="button" class="testbutton" value="Pause Audio" onclick="pauseAudio();">
+					<input type="button" class="testbutton" value="Stop Audio" onclick="stopAudio();">
+				</td>
+			</tr>
 			</table>
 			
 			<!-- Testing Input -->
@@ -137,16 +154,9 @@
 			-->
 
 			<br />
-			<input type="button" class="testbutton" value="play beep.mp3" onclick="play_sound('beep.mp3')"><br />
-			<input type="button" class="testbutton" value="play starter.wav" onclick="play_sound('starter.wav')"><br />
-			<input type="button" class="testbutton" value="play gated.wav" onclick="play_noise('gated.wav')"><br />
-			<input type="button" class="testbutton" value="play all 3" onclick="play_all()"><br />
 			
 			<br />
-			<input type="button" class="testbutton" value="Play Sound" onclick="playAudio('starter.wav');"><br />
-			<input type="button" class="testbutton" value="Play Noise" onclick="playAudio('gated.wav');"><br />
-			<input type="button" class="testbutton" value="Pause Audio" onclick="pauseAudio();"><br />
-			<input type="button" class="testbutton" value="Stop Audio" onclick="stopAudio();"><br />
+
 			
 			<br />
 			

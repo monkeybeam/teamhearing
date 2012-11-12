@@ -88,6 +88,11 @@ function playAudio(src) {
 	}
 }
 
+function playBoth() {
+	playSound("gated.wav");
+	playSound("starter.wav");
+}
+
 // Pause audio
 // 
 function pauseAudio() {
@@ -167,7 +172,6 @@ function play_sound(url){
 function play_all() {
 	play_noise('gated.wav');
 	play_sound('starter.wav');
-	play_sound('beep.mp3');
 }
 
 function report(id) {
