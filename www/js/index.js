@@ -81,11 +81,11 @@ function deviceDetection() {
 }
 
 function createPlayers() {
-	var cpcontainer = "#cp_container_0";
-	var audiofile = "http://www.teamaudiology.org/data/percept/starter.wav";
+	var cpcontainer = "#cp_container_1";
+	var audiofile = "data/starter.wav";
+	var audiovolume = 100;
 	var myPlayer = new Array();
 	var a=0;
-	var audiovolume=100;
 	var jplayername = "#jquery_jplayer_" + a;
 	alert (jplayername);
 	myPlayer[a] = new CirclePlayer(jplayername,
@@ -93,11 +93,10 @@ function createPlayers() {
 		wav: audiofile
 	}, {
 		cssSelectorAncestor: cpcontainer,
-		preload: "auto",
 		swfPath: "jPlayer/js",
 		wmode: "window",
 		volume: audiovolume
 	});
-	alert("play starter.wav");
+	alert("play " + audiofile);
 	myPlayer[0].play();
 }
