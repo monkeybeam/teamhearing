@@ -43,7 +43,9 @@ function init() {
 	// detect the device's platform 
 	deviceUUID = device.uuid;
 	deviceDetection();
+	alert("start creating jPlayers");
 	createPlayers();
+	alert("end creating jPlayers");
 	
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
@@ -83,7 +85,8 @@ function createPlayers() {
 	var audiofile = "http://www.teamaudiology.org/data/percept/starter.wav";
 	var myPlayer = new Array();
 	var a=0;
-	jplayername = "#jquery_jplayer_" + a;
+	var jplayername = "#jquery_jplayer_" + a;
+	alert (jplayername);
 	myPlayer[a] = new CirclePlayer(jplayername,
 	{
 		wav: audiofile
@@ -94,5 +97,6 @@ function createPlayers() {
 		wmode: "window",
 		volume: audiovolume
 	});
+	alert("play starter.wav");
 	myPlayer[0].play();
 }
