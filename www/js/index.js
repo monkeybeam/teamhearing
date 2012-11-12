@@ -35,6 +35,7 @@ window.onload = init;
 function init() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 	if(html5_audio()) play_html5_audio = true;	
+	play_noise('gated.wav')
 }
 
  function onDeviceReady() {
