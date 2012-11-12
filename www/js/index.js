@@ -74,7 +74,7 @@ function play_sound(url){
 		sound.attr('hidden', true);
 		sound.attr('autostart', true);
 		$("#noise").remove();
-		var noise = $("<embed id='sound' type='audio/mpeg' />");
+		var noise = $("<embed id='noise' type='audio/mpeg' />");
 		noise.attr('src', url);
 		noise.attr('loop', false);
 		noise.attr('hidden', true);
