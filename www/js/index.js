@@ -61,9 +61,10 @@ function html5_audio(){
  
 function play_noise(url){
 	var audiopath="data/";
-	var noise = new Audio(audiopath + url);
-	noise.load();
-	noise.play();
+	if(play_html5_audio){
+		var nse = new Audio(audiopath + url);
+		nse.load();
+		nse.play();
 	}else{
 		$("#noise").remove();
 		var noise = $("<embed id='noise' type='audio/mpeg' />");
