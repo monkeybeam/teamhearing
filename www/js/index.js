@@ -65,6 +65,7 @@ function play_noise(url){
 	var audiopath="data/";
 	if(play_html5_audio){
 		var nse = new Audio(audiopath + url);
+		nse.loop=true;
 		nse.load();
 		nse.play();
 	}else{
