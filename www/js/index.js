@@ -59,16 +59,28 @@ function html5_audio(){
 	return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
 }
  
+function play_noise(url){
+	var audiopath="data/";
+	var noise = new Audio(audiopath + url);
+	noise.load();
+	noise.play();
+	}else{
+		$("#noise").remove();
+		var noise = $("<embed id='noise' type='audio/mpeg' />");
+		noise.attr('src', url);
+		noise.attr('loop', false);
+		noise.attr('hidden', true);
+		noise.attr('autostart', true);
+		$('body').append(noise);
+	}
+}
+
 function play_sound(url){
 	var audiopath="data/";
-	var backgroundnoise="gated.wav";
 	if(play_html5_audio){
 		var snd = new Audio(audiopath + url);
 		snd.load();
 		snd.play();
-		var noise = new Audio(audiopath + backgroundnoise);
-		noise.load();
-		noise.play();
 	}else{
 		$("#sound").remove();
 		var sound = $("<embed id='sound' type='audio/mpeg' />");
@@ -76,13 +88,7 @@ function play_sound(url){
 		sound.attr('loop', false);
 		sound.attr('hidden', true);
 		sound.attr('autostart', true);
-		$("#noise").remove();
-		var noise = $("<embed id='noise' type='audio/mpeg' />");
-		noise.attr('src', url);
-		noise.attr('loop', false);
-		noise.attr('hidden', true);
-		noise.attr('autostart', true);
-		$('body').append(sound + noise);
+		$('body').append(sound);
 	}
 }
 

@@ -85,6 +85,12 @@
 			left:4%;
 			top:80%;
 		}
+		
+		.testbutton {
+			width: 120px;
+			height:60px;
+		}
+		
 		</style>		
         <script type="text/javascript">
             function Autofill() {	
@@ -127,8 +133,9 @@
 			-->
 
 			<br />
-			<input type="button" value="play beep.mp3" onclick="play_sound('beep.mp3')"><br />
-			<input type="button" value="play starter.wav" onclick="play_sound('starter.wav')"><br />
+			<input type="button" class="testbutton" value="play beep.mp3" onclick="play_sound('beep.mp3')"><br />
+			<input type="button" class="testbutton" value="play starter.wav" onclick="play_sound('starter.wav')"><br />
+			<input type="button" class="testbutton" value="play gated.wav" onclick="play_noise('gated.wav')"><br />
 			<br />
 			
 			<!-- jPlayer container divs -->
