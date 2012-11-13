@@ -23,6 +23,7 @@ var isPhoneGapReady = false;
 var isConnected = false;
 var isHighSpeed = false;
 var internetInterval;
+var currentUrl;
 
 // Default all phone types to false 
 var isAndroid = false; 
@@ -37,36 +38,67 @@ var play_html5_audio = false;
 var my_media = null;
 var mediaTimer = null;
 
+// This gets called by jQuery mobile when the page has loaded
+$(document).bind("pageload", function(event, data) {init(data.url);});
+
 // Set an onload handler to call the init function 
 window.onload = init;
  
-function init() {
-	document.addEventListener("deviceready", onDeviceReady, false);
-	if(html5_audio()) play_html5_audio = true;	
-	document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;			
-	//play_noise("gated.wav");
+function init(url) {
+	if (typeof url != 'string') { 
+		currentUrl = location.href; 
+	} else { 
+		currentUrl = url; 
+	} 
 	
+	if (isPhoneGapReady) { 
+		onDeviceReady(); 
+	} else { 
+		// Add an event listener for deviceready 
+		document.addEventListener("deviceready", onDeviceReady, false); 
+	}
+	if(html5_audio()) play_html5_audio = true;	
+	document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;				
 }
 
  function onDeviceReady() {
 	// set to true 
 	isPhoneGapReady = true; 
-	
 	// detect the device's platform 
 	deviceUUID = device.uuid;
 	deviceDetection();
 	// detect for network access 
 	networkDetection();
-	// attach events for online and offline detection 
-	document.addEventListener("online", onOnline, false); 
-	document.addEventListener("offline", onOffline, false);
+	// execute any events at start up 
+	executeEvents(); 
+	// execute a callback function
+	executeCallback();
 	
 	//createPlayers();
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
-	//var mytarea = document.getElementById("tarea");
-	//mytarea.value='This is a native app compiled for 5 mobile platforms...';
+}
+
+function executeEvents() { 
+	if (isPhoneGapReady) { 
+		// attach events for online and offline detection 
+		document.addEventListener("online", onOnline, false); 
+		document.addEventListener("offline", onOffline, false); 
+	}
+}
+
+function executeCallback() { 
+	if (isPhoneGapReady)
+	{ 
+		// get the name of the current html page 
+		var pages = currentUrl.split("/"); 
+		var currentPage = pages[pages.length - 1].slice(0, pages[pages.length - 1].indexOf(".html")); 
+		// capitalize the first letter and execute the function 
+		currentPage = currentPage.charAt(0).toUpperCase() + currentPage.slice(1); 
+		if (typeof window['on' + currentPage + 'Load'] == 'function') 
+			{window['on' + currentPage + 'Load'](); }
+	}
 }
 
 function report(id) {

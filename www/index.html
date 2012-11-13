@@ -24,15 +24,15 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min" />
         <script type="text/javascript" src="cordova-2.0.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
 		<!--
 		/////////////////////////////////////////////////////////////
 		//jPlayer for Test Section ONLY
 		/////////////////////////////////////////////////////////////
 		-->
 		<link rel="stylesheet" href="jPlayer/skin/circle.skin/circle.player.css">
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
 		<script type="text/javascript" src="jPlayer/js/jquery.jplayer.min.js"></script>
 		<script type="text/javascript" src="jPlayer/js/jquery.transform.js"></script>
 		<script type="text/javascript" src="jPlayer/js/jquery.grab.js"></script>
@@ -132,8 +132,19 @@
         </script>
 	</head>
     <body id='mainbody'>
+		<div data-role="page" id="index-page">
+		
             <h1>Team Hearing</h1>
             <h2>Mobile Resources for Hearing Health Care v2.05</h2>
+			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="index.html" class="ui-btn-active">Home</a></li>
+						<li><a href="about.html">About</a></li> 
+					</ul> 
+				</div> 
+			</div>
 			
 			<br />
 			<!-- Login Form -->
@@ -230,10 +241,16 @@
 			</div>			
 			
 			<div class="app">
-            <div id="deviceready">
-                <p class="status pending blink">Connecting to Device</p>
-                <p class="status complete blink hide">Device is Ready</p>
-            </div>
+				<div id="deviceready">
+					<p class="status pending blink">Connecting to Device</p>
+					<p class="status complete blink hide">Device is Ready</p>
+				</div>
 			</div>
-    </body>
+
+			<script type="text/javascript" charset ="utf-8" src="js/jquery-1.8.2.min.js"></script>
+			<script type="text/javascript" charset ="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+			<script type="text/javascript" charset ="utf-8" src="js/common.js"></script>			
+		
+		</div>
+	</body>
 </html>
