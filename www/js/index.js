@@ -22,6 +22,8 @@ var isPhoneGapReady = false;
 // Store the current network status 
 var isConnected = false;
 var isHighSpeed = false;
+var internetInterval;
+
 // Default all phone types to false 
 var isAndroid = false; 
 var isBlackberry = false; 
@@ -55,12 +57,72 @@ function init() {
 	deviceDetection();
 	// detect for network access 
 	networkDetection();
+	// attach events for online and offline detection 
+	document.addEventListener("online", onOnline, false); 
+	document.addEventListener("offline", onOffline, false);
+	
 	//createPlayers();
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
 	//var mytarea = document.getElementById("tarea");
 	//mytarea.value='This is a native app compiled for 5 mobile platforms...';
+}
+
+function report(id) {
+	// Report the event in the console
+	console.log("Report: " + id);
+
+	// Toggle the state from "pending" to "complete" for the reported ID.
+	// Accomplished by adding .hide to the pending element and removing
+	// .hide from the complete element.
+	document.querySelector('#' + id + ' .pending').className += ' hide';
+	var completeElem = document.querySelector('#' + id + ' .complete');
+	completeElem.className = completeElem.className.split('hide').join('');
+	document.getElementById("checkisphonegapready").innerHTML="Yes";		
+}
+
+function deviceDetection() { 
+	if (isPhoneGapReady) { 
+		switch (device.platform) { 
+			case "Android": isAndroid = true; break; 
+			case "Blackberry": isBlackberry = true; break; 
+			case "iPhone": isIphone = true; break; 
+			case "iPad": isIpad = true; break; 
+			case "WinCE": isWindows = true; break; 
+		}
+		document.getElementById("checkdeviceplatform").innerHTML=device.platform;		
+	}
+}
+
+function networkDetection() { 
+	if (isPhoneGapReady) { 
+	// as long as the connection type is not none, 
+	// the device should have Internet access 
+		if (navigator.network.connection.type != Connection.NONE) 
+		{ isConnected = true; } 
+	} 
+	// determine whether this connection is high-speed 
+	switch (navigator.network.connection.type) { 
+		case Connection.UNKNOWN: 
+		case Connection.CELL_2G: 
+			isHighSpeed = false; break; 
+		default: 
+			isHighSpeed = true; break; 
+		}
+	
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;
+	document.getElementById("checkhighspeed").innerHTML=isHighSpeed;
+}
+
+function onOnline() { 
+	isConnected = true;
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;
+} 
+	
+function onOffline() {
+	isConnected = false; 
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;
 }
 
 // Play Native Audio
@@ -187,52 +249,6 @@ function play_video(url) {
 function play_all() {
 	play_noise('gated.wav');
 	play_sound('starter.wav');
-}
-
-function report(id) {
-	// Report the event in the console
-	console.log("Report: " + id);
-
-	// Toggle the state from "pending" to "complete" for the reported ID.
-	// Accomplished by adding .hide to the pending element and removing
-	// .hide from the complete element.
-	document.querySelector('#' + id + ' .pending').className += ' hide';
-	var completeElem = document.querySelector('#' + id + ' .complete');
-	completeElem.className = completeElem.className.split('hide').join('');
-	document.getElementById("checkisphonegapready").innerHTML="Yes";		
-}
-
-function deviceDetection() { 
-	if (isPhoneGapReady) { 
-		switch (device.platform) { 
-			case "Android": isAndroid = true; break; 
-			case "Blackberry": isBlackberry = true; break; 
-			case "iPhone": isIphone = true; break; 
-			case "iPad": isIpad = true; break; 
-			case "WinCE": isWindows = true; break; 
-		}
-		document.getElementById("checkdeviceplatform").innerHTML=device.platform;		
-	}
-}
-
-function networkDetection() { 
-	if (isPhoneGapReady) { 
-	// as long as the connection type is not none, 
-	// the device should have Internet access 
-		if (navigator.network.connection.type != Connection.NONE) 
-		{ isConnected = true; } 
-	} 
-	// determine whether this connection is high-speed 
-	switch (navigator.network.connection.type) { 
-		case Connection.UNKNOWN: 
-		case Connection.CELL_2G: 
-			isHighSpeed = false; break; 
-		default: 
-			isHighSpeed = true; break; 
-		}
-	
-	document.getElementById("checknetworkconnected").innerHTML=isConnected;
-	document.getElementById("checkhighspeed").innerHTML=isHighSpeed;
 }
 
 function createPlayers() {
