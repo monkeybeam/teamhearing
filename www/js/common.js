@@ -250,7 +250,6 @@ function play_noise(url){
 }
 
 function play_sound(url){
-
 	var audiopath="data/";
 	if(play_html5_audio){
 		var snd = new Audio(audiopath + url);
