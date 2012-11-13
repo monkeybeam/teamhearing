@@ -21,6 +21,7 @@
 var isPhoneGapReady = false;  
 // Store the current network status 
 var isConnected = false;
+var isHighSpeed = false;
 // Default all phone types to false 
 var isAndroid = false; 
 var isBlackberry = false; 
@@ -221,7 +222,17 @@ function networkDetection() {
 		if (navigator.network.connection.type != Connection.NONE) 
 		{ isConnected = true; } 
 	} 
-	document.getElementById("checknetworkconnected").innerHTML=isConnected;		
+	// determine whether this connection is high-speed 
+	switch (navigator.network.connection.type) { 
+		case Connection.UNKNOWN: 
+		case Connection.CELL_2G: 
+			isHighSpeed = false; break; 
+		default: 
+			isHighSpeed = true; break; 
+		}
+	
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;
+	document.getElementById("checkhighspeed").innerHTML=isHighSpeed;
 }
 
 function createPlayers() {
