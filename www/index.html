@@ -26,101 +26,6 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min.css" />
         <script type="text/javascript" src="cordova-2.0.0.js"></script>
-		<!--
-		/////////////////////////////////////////////////////////////
-		//jPlayer for Test Section ONLY
-		/////////////////////////////////////////////////////////////
-		-->
-		<!--<link rel="stylesheet" href="jPlayer/skin/circle.skin/circle.player.css">-->
-		<!--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
-		<!--
-		<script type="text/javascript" src="jPlayer/js/jquery.jplayer.min.js"></script>
-		<script type="text/javascript" src="jPlayer/js/jquery.transform.js"></script>
-		<script type="text/javascript" src="jPlayer/js/jquery.grab.js"></script>
-		<script type="text/javascript" src="jPlayer/js/mod.csstransforms.min.js"></script>
-		<script type="text/javascript" src="jPlayer/js/circle.player.js"></script>
-		-->
-		
-		<style type="text/css">
-
-		#mainbody {
-			background: url(images/pro/probackground.jpg);
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-			font-family: adobe, sans-serif;
-			font-weight: bold;
-			color: white;
-		}
-		.bglandscape {
-			background-size: 100% 180%;
-		}
-		.bgportrait {
-			background-size: 100% 320%;
-		}
-		#logintable {
-			position:absolute;
-			height:50%;
-			width:80%;
-			left:10%;
-			top:25%;
-		}
-		#title {
-			position:absolute;
-			height:10%;
-			width:80%;
-			left:4%;
-			top:2%;
-		}
-		#subtitle {
-			position:absolute;
-			height:10%;
-			width:80%;
-			left:4%;
-			top:12%;
-		}
-		#tagline {
-			position:absolute;
-			height:10%;
-			width:80%;
-			left:4%;
-			top:80%;
-		}
-		
-		.testbutton {
-			width: 80px;
-			height:36px;
-		}
-
-		table.sample {
-			border-width: 1px;
-			border-spacing: 2px;
-			border-style: outset;
-			border-color: gray;
-			border-collapse: separate;
-			background-color: white;
-			color: black;
-		}
-		table.sample th {
-			border-width: 1px;
-			padding: 1px;
-			border-style: inset;
-			border-color: gray;
-			background-color: white;
-			color: black;
-			-moz-border-radius: ;
-		}
-		table.sample td {
-			border-width: 1px;
-			padding: 1px;
-			border-style: inset;
-			border-color: gray;
-			background-color: white;
-			color: black;
-			-moz-border-radius: ;
-		}		
-		</style>		
 	</head>
     <body id='mainbody'>
 		<div data-role="page" id="index-page">
@@ -147,7 +52,7 @@
 			
 			<br />
 			CHECKLIST FOR FRAMEWORK: <br />
-			<table class="sample">
+			<table>
 			<tr><td>Device Ready? </td><td><span id='checkisphonegapready'></span></td><td></td></tr>
 			<tr><td>Device Platform= </td><td><span id='checkdeviceplatform'></span></td><td></td></tr>
 			<tr><td>Network Connected? </td><td><span id='checknetworkconnected'></span></td><td></td></tr>
@@ -156,15 +61,15 @@
 			<tr>
 				<td>HTML5 Audio? </td><td><span id='checkhtml5audio'></span></td>
 				<td>
-					<input type="button" class="testbutton" value="Play Sound" onclick="play_sound('starter.wav')">
-					<input type="button" class="testbutton" value="Play Noise" onclick="play_noise('gated.wav')">
-					<input type="button" class="testbutton" value="Play Both" onclick="play_all()">
+					<input type="button" value="Play Sound" onclick="play_sound('starter.wav')">
+					<input type="button" value="Play Noise" onclick="play_noise('gated.wav')">
+					<input type="button" value="Play Both" onclick="play_all()">
 				</td>
 			</tr>
 			<tr>
 				<td>HTML5 Video? </td><td><span id='checkhtml5video'></span></td>
 				<td>
-					<input type="button" class="testbutton" value="Play Video" onclick="play_video('movie')">
+					<input type="button" value="Play Video" onclick="play_video('movie')">
 					<div id="videopanel">
 						<video width="320" height="240" controls="controls">
 						  <source src="data/movie.mp4" type="video/mp4">
@@ -177,12 +82,12 @@
 			<tr>
 				<td>Native Audio: </td><td><span id='checkmediaposition'></span></td>
 				<td>
-					<input type="button" class="testbutton" value="Play Sound" onclick="playAudio('starter.wav');">
-					<input type="button" class="testbutton" value="Play Noise" onclick="playAudio('gated.wav');">
-					<input type="button" class="testbutton" value="Play Both" onclick="playBoth();">
+					<input type="button" value="Play Sound" onclick="playAudio('starter.wav');">
+					<input type="button" value="Play Noise" onclick="playAudio('gated.wav');">
+					<input type="button" value="Play Both" onclick="playBoth();">
 					<br />
-					<input type="button" class="testbutton" value="Pause Audio" onclick="pauseAudio();">
-					<input type="button" class="testbutton" value="Stop Audio" onclick="stopAudio();">
+					<input type="button" value="Pause Audio" onclick="pauseAudio();">
+					<input type="button" value="Stop Audio" onclick="stopAudio();">
 				</td>
 			</tr>
 			<tr><td>Database Connection:</td><td><span id='checkdatabase'></span></td><td></td></tr>
@@ -190,46 +95,6 @@
 			<tr><td>Create Local File:</td><td><span id='checkcreatelocalfile'></span></td><td></td></tr>
 			<tr><td>Upload File:</td><td><span id='checkuploadfile'></span></td><td></td></tr>
 			</table>
-			
-			<!-- Testing Input -->
-			<!--
-			<textarea rows="4" cols="50" id='tarea'></textarea><br /> 
-			<input type="button" style="width:200px;height:40px;" value="Auto Fill" onclick="Autofill()">
-			<input type="button" style="width:200px;height:40px;" value="Clear" onclick="Clear()">
-			<br />
-			-->
-
-			<br />
-			
-			<br />
-
-			
-			<br />
-			
-			<!-- jPlayer container divs -->
-			<div id='pagecontroller' style='display:block'>	
-				<!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
-				<div id='jquery_jplayer_0' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_1' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_2' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_3' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_4' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_5' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_6' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_7' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_8' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_9' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_10' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_11' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_12' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_13' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_14' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_15' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_16' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_17' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_18' class='cp-jplayer'></div>
-				<div id='jquery_jplayer_19' class='cp-jplayer'></div>
-			</div>			
 			
 			<div class="app">
 				<div id="deviceready">

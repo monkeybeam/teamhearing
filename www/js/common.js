@@ -74,7 +74,6 @@ function init(url) {
 	// execute a callback function
 	executeCallback();
 	
-	//createPlayers();
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
@@ -266,6 +265,11 @@ function play_sound(url){
 	}
 }
 
+function play_all() {
+	play_noise('gated.wav');
+	play_sound('starter.wav');
+}
+
 //HTML5 Video Player
 function play_video(url) {
 		var videofile="data/"+url;
@@ -275,29 +279,4 @@ function play_video(url) {
 						  +"Your browser does not support the video tag."
 						+"</video>";
 		document.getElementById("videopanel").innerHTML=videocontent;
-}
-
-function play_all() {
-	play_noise('gated.wav');
-	play_sound('starter.wav');
-}
-
-function createPlayers() {
-	var cpcontainer = "#cp_container_1";
-	var audiofile = "data/starter.wav";
-	var audiovolume = 100;
-	var myPlayer = new Array();
-	var a=0;
-	var jplayername = "#jquery_jplayer_" + a;
-	alert (jplayername);
-	myPlayer[a] = new CirclePlayer(jplayername,
-	{
-		wav: audiofile
-	}, {
-		cssSelectorAncestor: cpcontainer,
-		swfPath: "jPlayer/js",
-		volume: audiovolume
-	});
-	alert("play " + audiofile);
-	myPlayer[0].play();
 }
