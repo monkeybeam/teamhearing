@@ -1,6 +1,5 @@
 function onMapLoad() {
     if (isConnected) {
-        alert('load api');
         // load the google api
         var fileref=document.createElement('script');
         fileref.setAttribute("type","text/javascript");
@@ -12,14 +11,12 @@ function onMapLoad() {
 }
 
 function getGeolocation() {
-alert('get location');
     // get the user's gps coordinates and display map
     var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
     navigator.geolocation.getCurrentPosition(loadMap, geoError, options);
 }
 
 function loadMap(position) {
-    alert('here');
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     
     var myOptions = {

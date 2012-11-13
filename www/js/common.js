@@ -32,10 +32,6 @@ var isIpad = false;
 var isWindows = false; 
 // Store the device's uuid 
 var deviceUUID;
-var play_html5_audio = false;
-// PhoneGap Audio player
-var my_media = null;
-var mediaTimer = null;
 
 // This gets called by jQuery mobile when the page has loaded
 $(document).bind("pageload", function(event, data) {init(data.url);});
@@ -56,8 +52,6 @@ function init(url) {
 		// Add an event listener for deviceready 
 		document.addEventListener("deviceready", onDeviceReady, false); 
 	}
-	if(html5_audio()) play_html5_audio = true;	
-	document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;				
 }
 
  function onDeviceReady() {
@@ -112,7 +106,6 @@ function report(id) {
 	document.querySelector('#' + id + ' .pending').className += ' hide';
 	var completeElem = document.querySelector('#' + id + ' .complete');
 	completeElem.className = completeElem.className.split('hide').join('');
-	document.getElementById("checkisphonegapready").innerHTML="Yes";		
 }
 
 function deviceDetection() { 
@@ -124,7 +117,6 @@ function deviceDetection() {
 			case "iPad": isIpad = true; break; 
 			case "WinCE": isWindows = true; break; 
 		}
-		document.getElementById("checkdeviceplatform").innerHTML=device.platform;		
 	}
 }
 
@@ -143,19 +135,16 @@ function networkDetection() {
 		default: 
 			isHighSpeed = true; break; 
 		}
-	
-	document.getElementById("checknetworkconnected").innerHTML=isConnected;
-	document.getElementById("checkhighspeed").innerHTML=isHighSpeed;
 }
 
 function onOnline() { 
 	isConnected = true;
-	document.getElementById("checknetworkconnected").innerHTML=isConnected;
+	//document.getElementById("checknetworkconnected").innerHTML=isConnected;
 } 
 	
 function onOffline() {
 	isConnected = false; 
-	document.getElementById("checknetworkconnected").innerHTML=isConnected;
+	//document.getElementById("checknetworkconnected").innerHTML=isConnected;
 }
 
 function onPause() { 
@@ -167,129 +156,4 @@ function onResume() {
 	if (isPhoneGapReady == false) {
 		init(currentUrl); 
 	} 
-}
-
-// Play Native Audio
-function playAudio(src) {
-	// Create Media object from src
-	var audiofile="data/" + src;
-	my_media = new Media(audiofile, onSuccess, onError);
-	// Play audio
-	my_media.play({numberOfLoops:99});
-	// Update my_media position every second
-	if (mediaTimer == null) {
-		mediaTimer = setInterval(function() {
-			// get my_media position
-			my_media.getCurrentPosition(
-				// success callback
-				function(position) {
-					if (position > -1) {
-						setAudioPosition((position) + " sec");
-					}
-				},
-				// error callback
-				function(e) {
-					console.log("Error getting pos=" + e);
-					setAudioPosition("Error: " + e);
-				}
-			);
-		}, 1000);
-	}
-}
-
-//Play Native Sound and Noise
-function playBoth() {
-	playAudio("gated.wav");
-	playAudio("starter.wav");
-}
-
-// Pause Native Audio
-// 
-function pauseAudio() {
-	if (my_media) {
-		my_media.pause();
-	}
-}
-
-// Stop Native Audio
-// 
-function stopAudio() {
-	if (my_media) {
-		my_media.stop();
-	}
-	clearInterval(mediaTimer);
-	mediaTimer = null;
-}
-
-// onSuccess Callback
-function onSuccess() {
-	console.log("playAudio():Audio Success");
-}
-
-// onError Callback 
-function onError(error) {
-	alert('code: '    + error.code    + '\n' + 
-		  'message: ' + error.message + '\n');
-}
-
-// Set Native Audio position
-function setAudioPosition(position) {
-	document.getElementById('checkmediaposition').innerHTML = "pos="+position;
-}
-
-// HTML 5 Audio Player
-function html5_audio(){
-	var a = document.createElement('audio');
-	return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
-}
- 
-function play_noise(url){
-	var audiopath="data/";
-	if(play_html5_audio){
-		var nse = new Audio(audiopath + url);
-		nse.loop=true;
-		nse.load();
-		nse.play();
-	}else{
-		$("#noise").remove();
-		var noise = $("<embed id='noise' type='audio/mpeg' />");
-		noise.attr('src', url);
-		noise.attr('loop', false);
-		noise.attr('hidden', true);
-		noise.attr('autostart', true);
-		$('body').append(noise);
-	}
-}
-
-function play_sound(url){
-	var audiopath="data/";
-	if(play_html5_audio){
-		var snd = new Audio(audiopath + url);
-		snd.load();
-		snd.play();
-	}else{
-		$("#sound").remove();
-		var sound = $("<embed id='sound' type='audio/mpeg' />");
-		sound.attr('src', url);
-		sound.attr('loop', false);
-		sound.attr('hidden', true);
-		sound.attr('autostart', true);
-		$('body').append(sound);
-	}
-}
-
-function play_all() {
-	play_noise('gated.wav');
-	play_sound('starter.wav');
-}
-
-//HTML5 Video Player
-function play_video(url) {
-		var videofile="data/"+url;
-		var videocontent = "<video width='320' height='240' controls='controls' autoplay='autoplay'>"
-						  +"<source src='"+videofile+".mp4' type='video/mp4'>"
-						  +"<source src='"+videofile+".ogg' type='video/ogg'>"
-						  +"Your browser does not support the video tag."
-						+"</video>";
-		document.getElementById("videopanel").innerHTML=videocontent;
 }
