@@ -22,7 +22,6 @@ var isPhoneGapReady = false;
 // Store the current network status 
 var isConnected = false;
 var isHighSpeed = false;
-var internetInterval;
 var currentUrl;
 
 // Default all phone types to false 
@@ -84,6 +83,9 @@ function executeEvents() {
 		// attach events for online and offline detection 
 		document.addEventListener("online", onOnline, false); 
 		document.addEventListener("offline", onOffline, false); 
+		// attach events for pause and resume detection 
+		document.addEventListener("pause", onPause, false); 
+		document.addEventListener("resume", onResume, false);
 	}
 }
 
@@ -154,6 +156,17 @@ function onOnline() {
 function onOffline() {
 	isConnected = false; 
 	document.getElementById("checknetworkconnected").innerHTML=isConnected;
+}
+
+function onPause() { 
+	isPhoneGapReady = false; 
+}
+
+function onResume() {
+	// don't run if phonegap is already ready 
+	if (isPhoneGapReady == false) {
+		init(currentUrl); 
+	} 
 }
 
 // Play Native Audio
