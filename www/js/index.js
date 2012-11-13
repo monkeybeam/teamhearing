@@ -19,6 +19,8 @@
 
  //Global variable that will tell us whether PhoneGap is ready 
 var isPhoneGapReady = false;  
+// Store the current network status 
+var isConnected = false;
 // Default all phone types to false 
 var isAndroid = false; 
 var isBlackberry = false; 
@@ -28,6 +30,9 @@ var isWindows = false;
 // Store the device's uuid 
 var deviceUUID;
 var play_html5_audio = false;
+// PhoneGap Audio player
+var my_media = null;
+var mediaTimer = null;
 
 // Set an onload handler to call the init function 
 window.onload = init;
@@ -47,9 +52,9 @@ function init() {
 	// detect the device's platform 
 	deviceUUID = device.uuid;
 	deviceDetection();
-	//alert("start creating jPlayers");
+	// detect for network access 
+	networkDetection();
 	//createPlayers();
-	//alert("end creating jPlayers");
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
@@ -57,10 +62,7 @@ function init() {
 	//mytarea.value='This is a native app compiled for 5 mobile platforms...';
 }
 
-// PhoneGap Audio player
-var my_media = null;
-var mediaTimer = null;
-// Play audio
+// Play Native Audio
 function playAudio(src) {
 	// Create Media object from src
 	var audiofile="data/" + src;
@@ -88,12 +90,13 @@ function playAudio(src) {
 	}
 }
 
+//Play Native Sound and Noise
 function playBoth() {
 	playAudio("gated.wav");
 	playAudio("starter.wav");
 }
 
-// Pause audio
+// Pause Native Audio
 // 
 function pauseAudio() {
 	if (my_media) {
@@ -101,7 +104,7 @@ function pauseAudio() {
 	}
 }
 
-// Stop audio
+// Stop Native Audio
 // 
 function stopAudio() {
 	if (my_media) {
@@ -122,7 +125,7 @@ function onError(error) {
 		  'message: ' + error.message + '\n');
 }
 
-// Set audio position
+// Set Native Audio position
 function setAudioPosition(position) {
 	document.getElementById('checkmediaposition').innerHTML = "pos="+position;
 }
@@ -169,6 +172,7 @@ function play_sound(url){
 	}
 }
 
+//HTML5 Video Player
 function play_video(url) {
 		var videofile="data/"+url;
 		var videocontent = "<video width='320' height='240' controls='controls' autoplay='autoplay'>"
@@ -208,6 +212,16 @@ function deviceDetection() {
 		}
 		document.getElementById("checkdeviceplatform").innerHTML=device.platform;		
 	}
+}
+
+function networkDetection() { 
+	if (isPhoneGapReady) { 
+	// as long as the connection type is not none, 
+	// the device should have Internet access 
+		if (navigator.network.connection.type != Connection.NONE) 
+		{ isConnected = true; } 
+	} 
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;		
 }
 
 function createPlayers() {
