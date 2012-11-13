@@ -8,7 +8,8 @@ function onPhotosLoad() {
         { 
             quality: 50,
             encodingType: Camera.EncodingType.PNG,
-            destinationType: navigator.camera.DestinationType.FILE_URI
+            destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
         
         loaded = true;
@@ -18,6 +19,7 @@ function onPhotosLoad() {
 function onPhotoLoadSuccess(photoUri) {
     // store current photo for saving later
     currentPhoto = photoUri;
+	alert(currentPhoto);
     document.getElementById('photo').src = photoUri;
 }
 
@@ -37,7 +39,7 @@ function savePhoto() {
     uploadOptions.mimeType="image/png";
 
     var fileTransfer = new FileTransfer();
-    fileTransfer.upload(currentPhoto, "http://www.webistrate.com/phonegap/upload.php", uploadSuccess, uploadFail, uploadOptions);
+    fileTransfer.upload(currentPhoto, "http://www.teamaudiology.com/phonegap/upload.php", uploadSuccess, uploadFail, uploadOptions);
 }
 
 function uploadSuccess(result) {
