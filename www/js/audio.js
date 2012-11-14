@@ -3,7 +3,7 @@ var play_html5_audio = false;
 var my_media = null;
 var mediaTimer = null;
 
-function onChecklistLoad() {
+function onAudioLoad() {
     if (isConnected) {
 		if(html5_audio()) play_html5_audio = true;	
 		document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;				
