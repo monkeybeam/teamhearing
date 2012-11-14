@@ -112,7 +112,7 @@ function play_noise(url){
 function play_sound(url){
 	if(play_html5_audio){
 		var snd = new Audio(audiofilepath + url);
-		snd.volume = parseFloat(100/100);
+		snd.volume =1.0;
 		snd.load();
 		snd.play();
 	}else{
@@ -129,7 +129,7 @@ function play_sound(url){
 function play_soundsoft(url){
 	if(play_html5_audio){
 		var snd = new Audio(audiofilepath + url);
-		snd.volume = parseFloat(30/100);
+		snd.volume = .3;
 		snd.load();
 		snd.play();
 	}else{
@@ -161,9 +161,14 @@ function play_video(url) {
 
 //RIFFWAVE
 function play_riffwave() {
+	alert("play a riffwave");
 	var data = []; // just an array
 	for (var i=0; i<10000; i++) data[i] = Math.round(255 * Math.random()); // fill data with random samples
+	alert("data: " + data);
 	var wave = new RIFFWAVE(data); // create the wave file
+	alert("new wave created");
 	var audio = new Audio(wave.dataURI); // create the HTML5 audio element
+	alert("new audio created");
 	audio.play(); // some noise
+	alert("audio played");
 }
