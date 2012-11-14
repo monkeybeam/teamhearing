@@ -21,8 +21,10 @@ function onFileReadComplete(file) {
     var reader = new FileReader();
     reader.onloadend = function(evt) {
         // load it into the form
-        var form = document.getElementsByTagName('form')[0].elements;
-        form.notes.value = evt.target.result;
+        //var form = document.getElementsByTagName('form')[0].elements;
+        //form.notes.value = evt.target.result;
+        document.getElementById('notes').value = evt.target.result;
+		
     };
     reader.readAsText(file);
 }
@@ -47,7 +49,7 @@ function saveNotes() {
 		alert("afileWriter getting notes value");
         //var form = document.getElementsByTagName('form')[0].elements;
         //var notes = form.notes.value;
-        var notes =  document.getElementsById('notes').value;
+        var notes =  document.getElementById('notes').value;
 		alert("notes:" + notes);
         // save the notes
         afileWriter.write(notes);
