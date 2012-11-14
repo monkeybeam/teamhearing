@@ -19,7 +19,16 @@ function onChecklistLoad() {
 // Play Native Audio
 function playAudio(src) {
 	// Create Media object from src
-	var audiofile="data/" + src;
+	var audiofile="";
+	if (isAndroid)
+	{
+		audiofile="/android_asset/www/data/" + src;	
+	}
+	else
+	{
+		audiofile="data/" + src;	
+	}
+	alert(audiofile);
 	my_media = new Media(audiofile, onSuccess, onError);
 	// Play audio
 	my_media.play({numberOfLoops:99});
