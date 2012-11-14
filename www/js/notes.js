@@ -1,4 +1,4 @@
-var _fileWriter;
+var fileWriter;
 
 function onNotesLoad() {
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSComplete, fail);
@@ -31,15 +31,15 @@ function onFileWriterComplete(fileWriter) {
     // store the file writer in a 
     // global variable so we have it
     // when the user presses save
-    _fileWriter = fileWriter;
+    fileWriter = fileWriter;
 }
 
 function saveNotes() {
     // make sure the fileWriter is set
-    if (_fileWriter != null) {
+    if (fileWriter != null) {
         // create an oncomplete write function
         // that will redirect the user
-        _fileWriter.onwrite = function(evt) {
+        fileWriter.onwrite = function(evt) {
             alert("Saved successfully");
             $.mobile.changePage("index.html");
         };
@@ -48,7 +48,7 @@ function saveNotes() {
         var notes = form.notes.value;
     
         // save the notes
-        _fileWriter.write(notes);
+        fileWriter.write(notes);
     } else {
         alert("There was an error trying to save the file");
     }
