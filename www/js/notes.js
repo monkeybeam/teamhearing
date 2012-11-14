@@ -39,18 +39,15 @@ function onFileWriterComplete(fileWriter) {
 function saveNotes() {
     // make sure the afileWriter is set
     if (afileWriter != null) {
-		alert("afileWriter not null");
         // create an oncomplete write function
         // that will redirect the user
         afileWriter.onwrite = function(evt) {
             alert("Saved successfully");
             $.mobile.changePage("index.html");
         };
-		alert("afileWriter getting notes value");
         //var form = document.getElementsByTagName('form')[0].elements;
         //var notes = form.notes.value;
         var notes =  document.getElementById('notes').value;
-		alert("notes:" + notes);
         // save the notes
         afileWriter.write(notes);
     } else {

@@ -1,7 +1,7 @@
 var loaded = false;
 var currentPhoto = null;
 
-function onPhotosLoad() {
+function onPhotoLoad() {
     // only load the camera selector on first load
     if (!loaded) {
         navigator.camera.getPicture(onPhotoLoadSuccess, onFail, 
