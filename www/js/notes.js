@@ -44,12 +44,11 @@ function saveNotes() {
             alert("Saved successfully");
             $.mobile.changePage("index.html");
         };
-    
-		alert("afileWriter not null 2");
-        var form = document.getElementsByTagName('form')[0].elements;
-        var notes = form.notes.value;
-    
-		alert("afileWriter notes:" + notes);
+		alert("afileWriter getting notes value");
+        //var form = document.getElementsByTagName('form')[0].elements;
+        //var notes = form.notes.value;
+        var notes =  document.getElementsById('notes').value;
+		alert("notes:" + notes);
         // save the notes
         afileWriter.write(notes);
     } else {
