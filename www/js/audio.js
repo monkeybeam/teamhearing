@@ -2,15 +2,16 @@ var play_html5_audio = false;
 // PhoneGap Audio player
 var my_media = null;
 var mediaTimer = null;
+var audiofilepath="";
 
 function onAudioLoad() {
     if (isConnected) {
 		if(html5_audio()) play_html5_audio = true;	
-		document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;				
-		document.getElementById("checkisphonegapready").innerHTML="Yes";	
-		document.getElementById("checkdeviceplatform").innerHTML=device.platform;
-		document.getElementById("checknetworkconnected").innerHTML=isConnected;
-		document.getElementById("checkhighspeed").innerHTML=isHighSpeed;		
+		document.getElementById("checkhtml5audio").innerHTML=play_html5_audio;			
+		if (isAndroid) //Android has to have it's path set to this
+			{audiofilepath="/android_asset/www/data/";}
+		else
+			{audiofilepath="data/";}		
     } else {
         alert("Must be connected to the Internet");
     }
@@ -19,16 +20,7 @@ function onAudioLoad() {
 // Play Native Audio
 function playAudio(src) {
 	// Create Media object from src
-	var audiofile="";
-	if (isAndroid)
-	{
-		audiofile="/android_asset/www/data/" + src;	
-	}
-	else
-	{
-		audiofile="data/" + src;	
-	}
-	alert(audiofile);
+	var audiofile=audiofilepath + src;	
 	my_media = new Media(audiofile, onSuccess, onError);
 	// Play audio
 	my_media.play({numberOfLoops:99});
@@ -100,9 +92,8 @@ function html5_audio(){
 }
  
 function play_noise(url){
-	var audiopath="data/";
 	if(play_html5_audio){
-		var nse = new Audio(audiopath + url);
+		var nse = new Audio(audiofilepath + url);
 		nse.loop=true;
 		nse.load();
 		nse.play();
@@ -118,9 +109,8 @@ function play_noise(url){
 }
 
 function play_sound(url){
-	var audiopath="data/";
 	if(play_html5_audio){
-		var snd = new Audio(audiopath + url);
+		var snd = new Audio(audiofilepath + url);
 		snd.load();
 		snd.play();
 	}else{

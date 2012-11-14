@@ -67,6 +67,11 @@ function init(url) {
 	// execute a callback function
 	executeCallback();
 	
+
+	document.getElementById("checkisphonegapready").innerHTML=isPhoneGapReady;	
+	document.getElementById("checkdeviceplatform").innerHTML=device.platform;
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;
+	document.getElementById("checkhighspeed").innerHTML=isHighSpeed;		
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
@@ -139,12 +144,12 @@ function networkDetection() {
 
 function onOnline() { 
 	isConnected = true;
-	//document.getElementById("checknetworkconnected").innerHTML=isConnected;
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;
 } 
 	
 function onOffline() {
 	isConnected = false; 
-	//document.getElementById("checknetworkconnected").innerHTML=isConnected;
+	document.getElementById("checknetworkconnected").innerHTML=isConnected;
 }
 
 function onPause() { 

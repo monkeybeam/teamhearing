@@ -8,8 +8,9 @@ function onPhotosLoad() {
         { 
             quality: 50,
             encodingType: Camera.EncodingType.PNG,
-            destinationType: navigator.camera.DestinationType.FILE_URI,
-			sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+            destinationType: navigator.camera.DestinationType.FILE_URI
+			//uncomment sourceType and add comman at end of previous to get picture from photo library
+			//sourceType: Camera.PictureSourceType.PHOTOLIBRARY
         });
         
         loaded = true;
