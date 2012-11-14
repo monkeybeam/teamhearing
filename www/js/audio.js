@@ -165,9 +165,11 @@ function play_riffwave() {
 	var data = []; // just an array
 	for (var i=0; i<10000; i++) data[i] = Math.round(255 * Math.random()); // fill data with random samples
 	alert("data: " + data);
-	var wave = new RIFFWAVE(data); // create the wave file
+	var wave = new RIFFWAVE(); // create the wave file
+	wave.Make(data);
 	alert("new wave created");
-	var audio = new Audio(wave.dataURI); // create the HTML5 audio element
+	var audio = new Audio(); // create the HTML5 audio element
+	audio.src=wave.dataURI;
 	alert("new audio created");
 	audio.load();
 	audio.play(); // some noise
