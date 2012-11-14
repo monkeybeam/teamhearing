@@ -95,6 +95,7 @@ function play_noise(url){
 	if(play_html5_audio){
 		var nse = new Audio(audiofilepath + url);
 		nse.loop=true;
+		nse.volume = parseFloat(10/100);
 		nse.load();
 		nse.play();
 	}else{
@@ -111,6 +112,24 @@ function play_noise(url){
 function play_sound(url){
 	if(play_html5_audio){
 		var snd = new Audio(audiofilepath + url);
+		snd.volume = parseFloat(100/100);
+		snd.load();
+		snd.play();
+	}else{
+		$("#sound").remove();
+		var sound = $("<embed id='sound' type='audio/mpeg' />");
+		sound.attr('src', url);
+		sound.attr('loop', false);
+		sound.attr('hidden', true);
+		sound.attr('autostart', true);
+		$('body').append(sound);
+	}
+}
+
+function play_soundsoft(url){
+	if(play_html5_audio){
+		var snd = new Audio(audiofilepath + url);
+		snd.volume = parseFloat(30/100);
 		snd.load();
 		snd.play();
 	}else{
