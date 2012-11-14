@@ -169,6 +169,7 @@ function play_riffwave() {
 	alert("new wave created");
 	var audio = new Audio(wave.dataURI); // create the HTML5 audio element
 	alert("new audio created");
+	audio.load();
 	audio.play(); // some noise
 	alert("audio played");
 }
