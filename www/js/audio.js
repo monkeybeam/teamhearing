@@ -168,10 +168,11 @@ function play_riffwave() {
 	var wave = new RIFFWAVE(); // create the wave file
 	wave.Make(data);
 	alert("new wave created");
-	var audio = new Audio(); // create the HTML5 audio element
-	audio.src=wave.dataURI;
-	alert("new audio created");
-	audio.load();
-	audio.play(); // some noise
-	alert("audio played");
+	var riffaudio = new Audio(); // create the HTML5 audio element
+	riffaudio.src=wave.dataURI;
+	alert("new riff audio created");
+	riffaudio.load();
+	alert("riff audio loaded");
+	riffaudio.play(); // some noise
+	alert("riff audio played");
 }
