@@ -43,13 +43,17 @@ function savePhoto() {
 	var params = new Object();
 	params.value1 = "test";
 	params.value2 = "param";
-
+	uploadOptions.params = params;
+	
     var fileTransfer = new FileTransfer();
     fileTransfer.upload(currentPhoto, "http://www.teamaudiology.com/phonegap/upload.php", uploadSuccess, uploadFail, uploadOptions);
 }
 
 function uploadSuccess(result) {
-    alert("Successfully transferred " + result.bytesSent + "bytes");
+    alert("Successfully transferred responseCode:"+result.responseCode+" response:"+ result.response+ " bytesSent:"+ result.bytesSent + "bytes");
+	console.log("Code = " + result.responseCode);
+	console.log("Response = " + result.response);
+	console.log("Sent = " + result.bytesSent);	
 }
 
 function uploadFail(error) {
