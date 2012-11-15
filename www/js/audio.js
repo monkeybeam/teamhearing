@@ -112,6 +112,7 @@ function play_noise(url){
 function play_sound(url){
 	if(play_html5_audio){
 		var snd = new Audio(audiofilepath + url);
+		alert (snd.src);
 		snd.volume =1.0;
 		snd.load();
 		snd.play();
@@ -128,10 +129,11 @@ function play_sound(url){
 
 function play_soundsoft(url){
 	if(play_html5_audio){
-		var snd = new Audio(audiofilepath + url);
-		snd.volume = .3;
-		snd.load();
-		snd.play();
+		var sndsoft = new Audio(audiofilepath + url);
+		alert(sndsoft.src);
+		sndsoft.volume = .3;
+		sndsoft.load();
+		sndsoft.play();
 	}else{
 		$("#sound").remove();
 		var sound = $("<embed id='sound' type='audio/mpeg' />");

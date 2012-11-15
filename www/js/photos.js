@@ -36,8 +36,13 @@ function savePhoto() {
     
     var uploadOptions = new FileUploadOptions();
     uploadOptions.fileKey = "file";
-    uploadOptions.fileName = currentPhoto.substr(currentPhoto.lastIndexOf('/') + 1);
+	var currentPhotoFileName=currentPhoto.substr(currentPhoto.lastIndexOf('/') + 1);
+	alert(currentPhotoFileName);
+    uploadOptions.fileName = currentPhotoFileName;
     uploadOptions.mimeType="image/png";
+	var params = new Object();
+	params.value1 = "test";
+	params.value2 = "param";
 
     var fileTransfer = new FileTransfer();
     fileTransfer.upload(currentPhoto, "http://www.teamaudiology.com/phonegap/upload.php", uploadSuccess, uploadFail, uploadOptions);
