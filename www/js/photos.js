@@ -45,7 +45,7 @@ function savePhoto() {
 	uploadOptions.chunkedMode = false;
 	
     var fileTransfer = new FileTransfer();
-    fileTransfer.upload(currentPhoto, "https://www.teamaudiology.org/phonegap/upload.php", uploadSuccess, uploadFail, uploadOptions);
+    fileTransfer.upload(currentPhoto, "https://www.teamaudiology.org/phonegap/php/upload.php", uploadSuccess, uploadFail, uploadOptions);
 }
 
 function uploadSuccess(result) {

@@ -75,6 +75,10 @@ function init(url) {
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
+	
+	// Connect to Database
+	GetJson("MembersOnly","alead1",false);
+	alert("alead1 has " + jsonmembersonlycount + members);
 }
 
 function executeEvents() { 
