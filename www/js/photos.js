@@ -20,7 +20,6 @@ function onPhotosLoad() {
 function onPhotoLoadSuccess(photoUri) {
     // store current photo for saving later
     currentPhoto = photoUri;
-	alert(currentPhoto);
     document.getElementById('photo').src = photoUri;
 }
 
@@ -36,13 +35,11 @@ function savePhoto() {
     
     var uploadOptions = new FileUploadOptions();
     uploadOptions.fileKey = "file";
-	var currentPhotoFileName=currentPhoto.substr(currentPhoto.lastIndexOf('/') + 1);
-	alert(currentPhotoFileName);
-    uploadOptions.fileName = currentPhotoFileName;
+    uploadOptions.fileName = currentPhoto.substr(currentPhoto.lastIndexOf('/') + 1);
     uploadOptions.mimeType="image/png";
-	var params = new Object();
-	params.value1 = "from Dennis";
-	params.value2 = "source is camera";
+		var params = new Object();
+		params.value1 = "from Dennis";
+		params.value2 = "source is camera";
 	uploadOptions.params = params;
 	uploadOptions.chunkedMode = false;
 	
@@ -51,7 +48,7 @@ function savePhoto() {
 }
 
 function uploadSuccess(result) {
-    alert("Successfully transferred responseCode:"+result.responseCode+" response:"+ result.response+ " bytesSent:"+ result.bytesSent + "bytes");
+    alert("Successfully transferred " + result.bytesSent + "bytes");
 	console.log("Code = " + result.responseCode);
 	console.log("Response = " + result.response);
 	console.log("Sent = " + result.bytesSent);	
