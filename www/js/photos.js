@@ -20,7 +20,6 @@ function onPhotosLoad() {
 function onPhotoLoadSuccess(photoUri) {
     // store current photo for saving later
     currentPhoto = photoUri;
-	alert(currentPhoto);
     document.getElementById('photo').src = photoUri;
 }
 
