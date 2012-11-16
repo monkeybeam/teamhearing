@@ -49,7 +49,7 @@ function savePhoto() {
 }
 
 function uploadSuccess(result) {
-    alert("Successfully transferred responseCode:"+result.responseCode+" response:"+ result.response+ " bytesSent:"+ result.bytesSent + "bytes");
+    alert("Successfully transferred "+ result.bytesSent + " bytes");
 	console.log("Code = " + result.responseCode);
 	console.log("Response = " + result.response);
 	console.log("Sent = " + result.bytesSent);	
