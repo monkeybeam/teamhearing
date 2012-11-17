@@ -76,7 +76,6 @@ function init(url) {
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
 	
-	alert("before GetJson");
 	// Connect to Database
 	GetJson("MembersOnly","alead1",true);
 }
