@@ -79,6 +79,7 @@ function GetJsonIndex(req, user)
 }
 
 function GetJson(req, user, doafter) {
+	alert("getjson1");
 	var jsondata;
 	$.ajax({  
 		type: 'POST',       
@@ -115,12 +116,10 @@ function GetJson(req, user, doafter) {
 				}
 				if (req=="MembersOnly")
 				{
+					alert("getjson2");
 					jsonmembers=jsondata;
 					jsonmemberscount=count(jsonmembers);
-					if (doafter)
-					{
-						ShowDashboard(2);
-					}
+					alert("getjson3");
 				}
 				if (req=="Activities")
 				{
@@ -138,10 +137,6 @@ function GetJson(req, user, doafter) {
 				{
 					jsonmessages=jsondata;
 					jsonmessagescount=count(jsonmessages);
-					if (doafter)
-					{
-						ShowDashboard(2);
-					}
 				}
 				if (req=="Files")
 				{
@@ -157,12 +152,6 @@ function GetJson(req, user, doafter) {
 				{
 					jsonresultsmine=jsondata;
 					jsonresultsminecount=count(jsonresultsmine);
-					//Post Processing in CallBack Function
-					if (doafter)
-					{
-						UpdateTabs();
-						UpdateMain(currenttab);
-					}
 				}
 				if (req=="Protocols")
 				{
@@ -188,13 +177,6 @@ function GetJson(req, user, doafter) {
 				{
 					jsonassignmentsmine=jsondata;
 					jsonassignmentsminecount=count(jsonassignmentsmine);
-					//Post Processing in CallBack Function
-					if (doafter)
-					{
-						testcount=jsonassignmentsminecount;
-						UpdateTabs();
-						UpdateMain(currenttab);
-					}
 				}		
 				if (req=="BELmaterials")
 				{

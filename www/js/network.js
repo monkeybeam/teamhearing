@@ -79,7 +79,7 @@ function init(url) {
 	alert("before GetJson");
 	// Connect to Database
 	GetJson("MembersOnly","alead1",false);
-	alert("alead1 has " + jsonmembersonlycount + members);
+	alert("alead1 has " + jsonmembersonlycount + " members");
 }
 
 function executeEvents() { 
