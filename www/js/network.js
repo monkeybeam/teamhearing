@@ -168,6 +168,8 @@ function onResume() {
 }
 
 function showDatabaseStats() {
+	alert("showDatabaseStats");
+
 	document.getElementById("checkdatabase").innerHTML="Database is Connected";
-	document.getElementById("checkdatabasemembers").innerHTML=jsonmembersonlycount;
+	document.getElementById("checkdatabasemembers").innerHTML=jsonmemberscount;
 }

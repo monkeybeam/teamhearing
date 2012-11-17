@@ -79,6 +79,7 @@ function GetJsonIndex(req, user)
 }
 
 function GetJson(req, user, doafter) {
+	alert("getjson1");
 	var jsondata;
 	$.ajax({  
 		type: 'POST',       
@@ -115,12 +116,17 @@ function GetJson(req, user, doafter) {
 				}
 				if (req=="MembersOnly")
 				{
+					alert("getjson2");
 					jsonmembers=jsondata;
 					jsonmemberscount=count(jsonmembers);
+					alert("getjson3");
 					if (doafter)
 					{
+						alert("getjson4");
 						if (isPhoneGapReady) 
-							{showDatabaseStats();}
+							{	alert("getjson5");
+								showDatabaseStats();
+							}
 					}
 				}
 				if (req=="Activities")
