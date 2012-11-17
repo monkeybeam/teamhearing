@@ -78,8 +78,7 @@ function init(url) {
 	
 	alert("before GetJson");
 	// Connect to Database
-	GetJson("MembersOnly","alead1",false);
-	alert("alead1 has " + jsonmembersonlycount + " members");
+	GetJson("MembersOnly","alead1",true);
 }
 
 function executeEvents() { 
@@ -166,4 +165,9 @@ function onResume() {
 	if (isPhoneGapReady == false) {
 		init(currentUrl); 
 	} 
+}
+
+function showDatabaseStats() {
+	document.getElementById("checkdatabase").innerHTML="Database is Connected";
+	document.getElementById("checkdatabasemembers").innerHTML=jsonmembersonlycount;
 }
