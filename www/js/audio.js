@@ -178,3 +178,46 @@ function play_riffwave() {
 	riffaudio.play(); // some noise
 	alert("riff audio played");
 }
+
+
+//CODE BELOW ARE ALL FROM capture.js
+function captureAudio() {
+    navigator.device.capture.captureAudio(captureSuccess, captureError);
+}
+
+function captureVideo() {
+    navigator.device.capture.captureVideo(captureSuccess, captureError);
+}
+
+function captureSuccess(files) {
+    // more than 1 file might be returned
+    // so perform a loop and upload all of them
+    for (var i = 0; i < files.length; i++) {
+        uploadMediaFile(files[i]);
+    }
+}
+
+function captureError(error) {
+    alert("Error during capture = " + error.code);
+}
+
+function uploadMediaFile(file) {
+    var uploadOptions = new FileUploadOptions();
+    uploadOptions.fileKey = "file";
+    uploadOptions.fileName = currentPhoto.substr(file.lastIndexOf('/') + 1);
+
+    var fileTransfer = new FileTransfer();
+    fileTransfer.path = file.fullPath;
+    fileTransfer.name = file.name;
+    
+    fileTransfer.upload(file, "https://www.teamaudiology.org/phonegap/php/uploadMedia.php", uploadSuccess, uploadFail, uploadOptions);
+}
+
+function uploadSuccess(result) {
+    alert("Successfully transferred " + result.bytesSent + "bytes");
+}
+
+function uploadFail(error) {
+    alert("Error uploading file: " + error.code);
+}
+
