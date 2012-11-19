@@ -192,9 +192,10 @@ function captureVideo() {
 function captureSuccess(files) {
     // more than 1 file might be returned
     // so perform a loop and upload all of them
-    for (var i = 0; i < files.length; i++) {
-        uploadMediaFile(files[i]);
-    }
+     uploadMediaFile(files[0]); //upload only first file for now...
+//	for (var i = 0; i < files.length; i++) {
+//        uploadMediaFile(files[i]);
+//    }
 }
 
 function captureError(error) {
@@ -202,15 +203,17 @@ function captureError(error) {
 }
 
 function uploadMediaFile(file) {
+	alert (file.name);
     var uploadOptions = new FileUploadOptions();
     uploadOptions.fileKey = "file";
-    uploadOptions.fileName = currentPhoto.substr(file.lastIndexOf('/') + 1);
-
+    var currentAudio = file; //only upload the first file for now
+	alert(currentAudio.substr(currentAudio.lastIndexOf('/') + 1););
+    uploadOptions.fileName = currentAudio.substr(currentAudio.lastIndexOf('/') + 1);
     var fileTransfer = new FileTransfer();
     fileTransfer.path = file.fullPath;
     fileTransfer.name = file.name;
     
-    fileTransfer.upload(file, "https://www.teamaudiology.org/phonegap/php/uploadMedia.php", uploadSuccess, uploadFail, uploadOptions);
+    fileTransfer.upload(currentAudio, "https://www.teamaudiology.org/phonegap/php/uploadMedia.php", uploadSuccess, uploadFail, uploadOptions);
 }
 
 function uploadSuccess(result) {
