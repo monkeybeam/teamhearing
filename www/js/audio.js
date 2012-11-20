@@ -112,7 +112,6 @@ function play_noise(url){
 function play_sound(url){
 	if(play_html5_audio){
 		var snd = new Audio(audiofilepath + url);
-		alert (snd.src);
 		snd.volume =1.0;
 		snd.load();
 		snd.play();
@@ -130,7 +129,6 @@ function play_sound(url){
 function play_soundsoft(url){
 	if(play_html5_audio){
 		var sndsoft = new Audio(audiofilepath + url);
-		alert(sndsoft.src);
 		sndsoft.volume = .3;
 		sndsoft.load();
 		sndsoft.play();
@@ -208,23 +206,28 @@ function play_riffwave() {
 
     // Upload files to server
     function uploadFile(mediaFile) {
+		alert("uploadFile");
 		var currentAudio=mediaFile.name;
-		if (currentPhoto == null) {
+		if (currentAudio == null) {
 			alert("Please record audio first");
 			return;
 		}
+		alert(currentAudio);
 		var uploadOptions = new FileUploadOptions();
 		uploadOptions.fileKey = "file";
 		uploadOptions.fileName = currentAudio;
 		uploadOptions.mimeType="audio/wav";
+		alert("params");
 		var params = new Object();
 		params.value1 = "from Dennis";
 		params.value2 = "source is microphone";
 		uploadOptions.params = params;
 		uploadOptions.chunkedMode = false;
-
+		alert("fileTransfer1");
 		var fileTransfer = new FileTransfer();
+		alert("fileTransfer2");
 		fileTransfer.upload(currentAudio, "https://www.teamaudiology.org/phonegap/php/upload.php", uploadSuccess, uploadFail, uploadOptions);	
+		alert("fileTransfer3");
     }
 
 	function uploadSuccess(result) {
