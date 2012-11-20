@@ -208,20 +208,32 @@ function play_riffwave() {
 
     // Upload files to server
     function uploadFile(mediaFile) {
-        var ft = new FileTransfer(),
-            path = mediaFile.fullPath,
-            name = mediaFile.name;
-		alert(name);
+		var currentAudio=mediaFile.name;
+		if (currentPhoto == null) {
+			alert("Please record audio first");
+			return;
+		}
+		var uploadOptions = new FileUploadOptions();
+		uploadOptions.fileKey = "file";
+		uploadOptions.fileName = currentAudio;
+		uploadOptions.mimeType="audio/wav";
+		var params = new Object();
+		params.value1 = "from Dennis";
+		params.value2 = "source is microphone";
+		uploadOptions.params = params;
+		uploadOptions.chunkedMode = false;
 
-        ft.upload(path,
-            "https://www.teamaudiology.org/phonegap/php/upload.php",
-            function(result) {
-                console.log('Upload success: ' + result.responseCode);
-                console.log(result.bytesSent + ' bytes sent');
-            },
-            function(error) {
-                console.log('Error uploading file ' + path + ': ' + error.code);
-            },
-            { fileName: name });   
+		var fileTransfer = new FileTransfer();
+		fileTransfer.upload(currentAudio, "https://www.teamaudiology.org/phonegap/php/upload.php", uploadSuccess, uploadFail, uploadOptions);	
     }
 
+	function uploadSuccess(result) {
+		alert("Successfully transferred "+ result.bytesSent + " bytes");
+		console.log("Code = " + result.responseCode);
+		console.log("Response = " + result.response);
+		console.log("Sent = " + result.bytesSent);	
+	}
+
+	function uploadFail(error) {
+		alert("Error uploading file: " + error.code);
+	}
