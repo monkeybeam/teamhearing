@@ -185,6 +185,7 @@ function play_riffwave() {
     //
     function captureSuccess(mediaFiles) {
         var i, len;
+		alert(mediaFiles.length);
         for (i = 0, len = mediaFiles.length; i < len; i += 1) {
             uploadFile(mediaFiles[i]);
         }       
@@ -210,6 +211,7 @@ function play_riffwave() {
         var ft = new FileTransfer(),
             path = mediaFile.fullPath,
             name = mediaFile.name;
+		alert(name);
 
         ft.upload(path,
             "https://www.teamaudiology.org/phonegap/php/upload.php",
