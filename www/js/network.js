@@ -78,9 +78,7 @@ function init(url) {
 	report('deviceready');
 	
 	// Connect to Database
-	alert("before GetJson MembersOnly");
 	GetJson("MembersOnly","alead1",true);
-	alert("after GetJson MembersOnly");
 }
 
 function executeEvents() { 
@@ -172,4 +170,24 @@ function onResume() {
 function showDatabaseStats() {
 	document.getElementById("checkdatabase").innerHTML="Database is Connected";
 	document.getElementById("checkdatabasemembers").innerHTML=jsonmemberscount;
+	displayMyTeam();
+}
+
+function displayMyTeam() {
+	alert("displaying My Team");
+	var myteamcontent="";
+	myteamcontent=myteamcontent+"<ul data-role='listview' data-divider-theme='b' data-inset='true'>";
+	for (i=0;i<jsonmemberscount;i++)
+	{
+        myteamcontent=myteamcontent
+					+"<li data-theme='c'>"
+                        +"<a href='#page7' data-transition='slide'>"
+                        +jsonmembers[i].firstname+" "+jsonmembers[i].lastname
+                        +"</a>"
+                    +"</li>";
+	}
+    myteamcontent=myteamcontent+"</ul>";
+	alert(myteamcontent);
+	document.getElementById("myteamlist").innerHTML=myteamcontent;
+
 }
