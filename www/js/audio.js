@@ -226,7 +226,7 @@ function play_riffwave() {
 		alert("fileTransfer1");
 		var fileTransfer = new FileTransfer();
 		alert("fileTransfer2");
-		fileTransfer.upload(currentAudio, "https://www.teamaudiology.org/phonegap/php/upload.php", uploadSuccess, uploadFail, uploadOptions);	
+		fileTransfer.upload(currentAudio, "https://www.teamaudiology.org/phonegap/php/uploadMedia.php", uploadSuccess, uploadFail, uploadOptions);	
 		alert("fileTransfer3");
     }
 

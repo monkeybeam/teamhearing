@@ -28,6 +28,922 @@
         <script type="text/javascript" src="cordova-2.0.0.js"></script>
 	</head>
     <body id='mainbody'>
+	
+        <!-- Home -->
+        <div data-role="page" id="page1" style="background: url('http://assets.codiqa.com/3lYRwQowRcW9vxRNe7iQ_background.png') no-repeat">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    TeamHearing Lite
+                </h3>
+            </div>
+            <div data-role="content">
+                <div>
+                    <p>
+                        <b>
+                            Welcome to TeamHearing.org Lite.&nbsp; Please enter your username and
+                            password to log in...
+                            <br>
+                        </b>
+                    </p>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput1">
+                            Username
+                        </label>
+                        <input name="" id="textinput1" placeholder="" value="" type="text">
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput2">
+                            Password
+                        </label>
+                        <input name="" id="textinput2" placeholder="" value="" type="text">
+                    </fieldset>
+                </div>
+                <a data-role="button" href="#page3">
+                    Login
+                </a>
+            </div>
+        </div>
+        <!-- Dashboard -->
+        <div data-role="page" id="page3">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+            </div>
+            <div data-role="content">
+                <div>
+                    <p>
+                        <b>
+                            Dashboard
+                            <br>
+                        </b>
+                    </p>
+                </div>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#page4" data-transition="slide">
+                            My Team
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page5" data-transition="slide">
+                            My Messages
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page6" data-transition="slide">
+                            My Tools
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- My Team -->
+        <div data-role="page" id="page4">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+            </div>
+            <div data-role="content">
+                <div>
+                    <p>
+                        <b>
+                            My Team
+                            <br>
+                        </b>
+                    </p>
+                </div>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#page7" data-transition="slide">
+                            Alana Sigfried
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page7" data-transition="slide">
+                            Baltimore Oswin
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page7" data-transition="slide">
+                            Cumberbatch Sherlock
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page7" data-transition="slide">
+                            Diana Metzler
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page7" data-transition="slide">
+                            Ebenezer Tolby
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- One Member -->
+        <div data-role="page" id="page7">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page4" data-transition="fade" data-theme="" data-icon="">
+                                My Team
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h3>
+                    Alana Sigfried
+                </h3>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#page11" data-transition="slide">
+                            Profile
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page12" data-transition="slide">
+                            Assignments
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page13" data-transition="slide">
+                            Results
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page14" data-transition="slide">
+                            Records
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Profile -->
+        <div data-role="page" id="page11">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page4" data-transition="fade" data-theme="" data-icon="">
+                                My Team
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page7" data-transition="fade" data-theme="" data-icon="">
+                                Alana Sigfried
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h3>
+                    Profile
+                </h3>
+                <div>
+                    <p>
+                        <b>
+                            Username: ahome1
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            Firstname: Alana
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            Lastname: Sigfried
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            Email:
+                            <a href="mailto:asigfried@gmail.com">
+                                asigfried@gmail.com
+                            </a>
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            DOB: 11/03/1994
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            Gender: Female
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            Phone: (993) 662-8080
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            <br>
+                        </b>
+                    </p>
+                    <p>
+                        <b>
+                            <br>
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                            Personal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                            Education
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                            Access
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Records -->
+        <div data-role="page" id="page14">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page4" data-transition="fade" data-theme="" data-icon="">
+                                My Team
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page7" data-transition="fade" data-theme="" data-icon="">
+                                Alana Sigfried
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h3>
+                    Records
+                </h3>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#page15" data-transition="slide">
+                            09/18/2012: profile2.jpg
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page15" data-transition="slide">
+                            07/17/2012: clinicreport.pdf
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page15" data-transition="slide">
+                            04/29/2012: summaryscan.xls
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page15" data-transition="slide">
+                            02/14/2012: uscscan.pdf
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page14" data-transition="fade" data-theme="" data-icon="star">
+                            Files
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page14" data-transition="fade" data-theme="" data-icon="star">
+                            Audiograms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page14" data-transition="fade" data-theme="" data-icon="star">
+                            Devices
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- One Record File -->
+        <div data-role="page" id="page15">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page4" data-transition="fade" data-theme="" data-icon="">
+                                My Team
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page7" data-transition="fade" data-theme="" data-icon="">
+                                Alana Sigfried
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page14" data-transition="fade" data-theme="" data-icon="">
+                                Records
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h3>
+                    File
+                </h3>
+                <div>
+                    <p>
+                        <span style="font-size: small;">
+                            <b>
+                                profile2.jpg, uploaded 11/30/2012 by Dennis
+                            </b>
+                        </span>
+                    </p>
+                </div>
+                <div style="">
+                    <img style="width: 100%; height: 100%" src="http://assets.codiqa.com/CPVks9dYSWl77n8b0C8O_background-citycolor.jpg">
+                </div>
+            </div>
+        </div>
+        <!-- Assignments -->
+        <div data-role="page" id="page12">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page4" data-transition="fade" data-theme="" data-icon="">
+                                My Team
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page7" data-transition="fade" data-theme="" data-icon="">
+                                Alana Sigfried
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h3>
+                    Assignments
+                </h3>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible">
+                        <h3>
+                            Gated vs. Static
+                        </h3>
+                        <div>
+                            <p>
+                                <span style="font-size: x-small;">
+                                    Identification, Vowels, Full Set, Gated Noise
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    Identification, Consonants, Full Set, Static Noise
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    Identification, Consonants, Full Set, Gated Noise
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>
+                            Harmonic Pitch
+                        </h3>
+                        <div>
+                            <p>
+                                <span style="font-size: x-small;">
+                                    Harmonic Pitch, 110 Hz
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    Harmonic Pitch, 220 Hz
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    Harmonic Pitch, 440 Hz
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    Harmonic Pitch, 110 Hz
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    Harmonic Pitch, 220 Hz
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    Harmonic Pitch, 440 Hz
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>
+                            Combination Series
+                        </h3>
+                        <div>
+                            <p>
+                                <span style="font-size: x-small;" data-mce-style="font-size: x-small;">
+                                </span>
+                                <span style="font-size: x-small;" data-mce-style="font-size: x-small;">
+                                    Identification, Consonants, Full Set, Quiet
+                                    <br>
+                                    Identification, Vowels, Full Set, Quiet
+                                    <br>
+                                    Tonal Pitch, 1000 Hz
+                                    <br>
+                                    Harmonic Pitch, 110 Hz
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Results -->
+        <div data-role="page" id="page13">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page4" data-transition="fade" data-theme="" data-icon="">
+                                My Team
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page7" data-transition="fade" data-theme="" data-icon="">
+                                Alana Sigfried
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <h3>
+                    Results
+                </h3>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible">
+                        <h3>
+                            12/11/2012: Single Tests
+                        </h3>
+                        <div>
+                            <p>
+                                <span style="font-size: x-small;">
+                                    12-06 11:32&nbsp;&nbsp; &nbsp;CARE ID Vowels Full&nbsp;&nbsp; &nbsp;8.33%
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    12-06 11:27&nbsp;&nbsp; &nbsp;Percept Harmonic&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                    0.50%
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>
+                            12/03/2012: Phoneme Tests
+                        </h3>
+                        <div>
+                            <p>
+                                <span style="font-size: x-small;">
+                                    12-06 11:32&nbsp;&nbsp; &nbsp;CARE ID Vowels Full&nbsp;&nbsp; &nbsp;8.33%
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    12-06 11:24 &nbsp;&nbsp; CARE ID Vowels Full&nbsp;&nbsp;&nbsp; 4.22%
+                                </span>
+                                <br>
+                            </p>
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>
+                            11/30/2012: Harmonic Pitch
+                        </h3>
+                        <div>
+                            <p>
+                                <span style="font-size: x-small;">
+                                    11-30 04:55&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.25%
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    11-28 12:30&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.75%
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    11-26 08:16&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.25%
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    11-26 04:49&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.50%
+                                </span>
+                                <br>
+                                <span style="font-size: x-small;">
+                                    11-30 04:55&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 1.75%
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- One Sender -->
+        <div data-role="page" id="page8">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page5" data-transition="fade" data-theme="" data-icon="">
+                                My Messages
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div>
+                    <p>
+                        <b>
+                            Conversations with Ebenezer
+                            <br>
+                        </b>
+                    </p>
+                </div>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#page9" data-transition="slide">
+                            12/10/2012: Hi there! What happened to the files for Connor?
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page9" data-transition="slide">
+                            11/31/2012: Meeting went well today.
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page9" data-transition="slide">
+                            09/14/2012: Thanks for the heads up on the project.
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page9" data-transition="slide">
+                            05/29/2012: Welcome to the team!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- One Message -->
+        <div data-role="page" id="page9">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page5" data-transition="fade" data-theme="" data-icon="">
+                                My Messages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page8" data-transition="fade" data-theme="" data-icon="">
+                                Ebenezer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        <b>
+                            12/10/2012: 04:33:21
+                            <br>
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div data-role="content">
+                <div>
+                    <p>
+                        <b>
+                            Hi there!&nbsp; What ever happened to the files for Connor?&nbsp; I thought
+                            they were already in the shelving system.&nbsp; But I can't seem to find
+                            them.&nbsp; Any tips would be great.&nbsp; Thank you :)
+                            <br>
+                        </b>
+                    </p>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput5">
+                        </label>
+                        <input name="" id="textinput5" placeholder="" value="" type="text">
+                    </fieldset>
+                </div>
+                <a data-role="button" href="#page8">
+                    Reply
+                </a>
+            </div>
+        </div>
+        <!-- My Messages -->
+        <div data-role="page" id="page5">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <a data-role="button" href="#page3" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+            </div>
+            <div data-role="content">
+                <div>
+                    <p>
+                        <b>
+                            My Messages
+                            <br>
+                        </b>
+                    </p>
+                </div>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#page8" data-transition="slide">
+                            Ebenezer
+                            <span class="ui-li-count">
+                                2
+                            </span>
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page8" data-transition="slide">
+                            Jordan
+                            <span class="ui-li-count">
+                                5
+                            </span>
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page8" data-transition="slide">
+                            Amanda
+                            <span class="ui-li-count">
+                                3
+                            </span>
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page8" data-transition="slide">
+                            Nathan
+                            <span class="ui-li-count">
+                                6
+                            </span>
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page8" data-transition="slide">
+                            Raemon
+                            <span class="ui-li-count">
+                                1
+                            </span>
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page8" data-transition="slide">
+                            Belle
+                            <span class="ui-li-count">
+                                8
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- My Tools -->
+        <div data-role="page" id="page6">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <a data-role="button" href="#page6" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+            </div>
+            <div data-role="content">
+                <div>
+                    <p>
+                        <b>
+                            My Tools
+                            <br>
+                        </b>
+                    </p>
+                </div>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#page10" data-transition="slide">
+                            Calibration
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page10" data-transition="slide">
+                            Advanced Reports
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page10" data-transition="slide">
+                            Sharing Center
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page10" data-transition="slide">
+                            Protocol Definition
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Calibration -->
+        <div data-role="page" id="page10">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    TeamHearing Lite
+                </h3>
+                <a data-role="button" href="#page1" data-icon="delete" data-iconpos="notext"
+                class="ui-btn-right">
+                </a>
+                <a data-role="button" href="#page10" data-icon="home" data-iconpos="notext"
+                class="ui-btn-left">
+                </a>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page6" data-transition="fade" data-theme="" data-icon="">
+                                My Tools
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        <b>
+                            Calibration
+                            <br>
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="vertical">
+                        <legend>
+                        </legend>
+                        <input id="radio1" name="" value="radio1" type="radio">
+                        <label for="radio1">
+                            harmonic
+                        </label>
+                        <input id="radio2" name="" value="radio2" type="radio">
+                        <label for="radio2">
+                            tonal
+                        </label>
+                    </fieldset>
+                </div>
+                <a data-role="button" href="#page10">
+                    Play Sound
+                </a>
+            </div>
+        </div>
+        <script>
+              //App custom javascript
+        </script>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		<div data-role="page" id="index-page">
 		
             <h1>Team Hearing</h1>
