@@ -40,6 +40,7 @@ $(document).bind("pageload", function(event, data) {init(data.url);});
 window.onload = init;
  
 function init(url) {
+	alert("at network.js init()");
 	if (typeof url != 'string') { 
 		currentUrl = location.href; 
 	} else { 
