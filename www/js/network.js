@@ -174,7 +174,6 @@ function showDatabaseStats() {
 }
 
 function displayMyTeam() {
-	alert("displaying My Team");
 	var myteamcontent="";
 	myteamcontent=myteamcontent+"<ul data-role='listview' data-divider-theme='b' data-inset='true'>";
 	for (i=0;i<jsonmemberscount;i++)
@@ -187,7 +186,6 @@ function displayMyTeam() {
                     +"</li>";
 	}
     myteamcontent=myteamcontent+"</ul>";
-	alert(myteamcontent);
 	document.getElementById("myteamlist").innerHTML=myteamcontent;
 
 }
