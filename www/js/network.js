@@ -78,7 +78,9 @@ function init(url) {
 	report('deviceready');
 	
 	// Connect to Database
+	alert("before GetJson MembersOnly");
 	GetJson("MembersOnly","alead1",true);
+	alert("after GetJson MembersOnly");
 }
 
 function executeEvents() { 
