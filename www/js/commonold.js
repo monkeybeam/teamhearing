@@ -1,94 +1,16 @@
-var DDSPEED = 10;
-var DDTIMER = 15;
-
-// main function to handle the mouse events //
-function ddMenu(id,d){
-  var h = document.getElementById(id + '-ddheader');
-  var c = document.getElementById(id + '-ddcontent');
-  clearInterval(c.timer);
-  if(d == 1){
-    clearTimeout(h.timer);
-    if(c.maxh && c.maxh <= c.offsetHeight){return}
-    else if(!c.maxh){
-      c.style.display = 'block';
-      c.style.height = 'auto';
-      c.maxh = c.offsetHeight;
-      c.style.height = '0px';
-    }
-    c.timer = setInterval(function(){ddSlide(c,1)},DDTIMER);
-  }else{
-    h.timer = setTimeout(function(){ddCollapse(c)},50);
-  }
-}
-
-// collapse the menu //
-function ddCollapse(c){
-  c.timer = setInterval(function(){ddSlide(c,-1)},DDTIMER);
-}
-
-// cancel the collapse if a user rolls over the dropdown //
-function cancelHide(id){
-  var h = document.getElementById(id + '-ddheader');
-  var c = document.getElementById(id + '-ddcontent');
-  clearTimeout(h.timer);
-  clearInterval(c.timer);
-  if(c.offsetHeight < c.maxh){
-    c.timer = setInterval(function(){ddSlide(c,1)},DDTIMER);
-  }
-}
-
-// incrementally expand/contract the dropdown and change the opacity //
-function ddSlide(c,d){
-  var currh = c.offsetHeight;
-  var dist;
-  if(d == 1){
-    dist = (Math.round((c.maxh - currh) / DDSPEED));
-  }else{
-    dist = (Math.round(currh / DDSPEED));
-  }
-  if(dist <= 1 && d == 1){
-    dist = 1;
-  }
-  c.style.height = currh + (dist * d) + 'px';
-  c.style.opacity = currh / c.maxh;
-  c.style.filter = 'alpha(opacity=' + (currh * 100 / c.maxh) + ')';
-  if((currh < 2 && d != 1) || (currh > (c.maxh - 2) && d == 1)){
-    clearInterval(c.timer);
-  }
-}
-
-//Administration Variables (moved from pro.php on 1/13/2012 Dennis
-//These are used globally including pro.php and common.php for the desktop and mobile versions
-
-var currentmember="";
-var currentmemberid="";
-var guestname="";
-var guestid="";
-var guestrole="";
-var version="";
-var myteamleader="";
-var mymentorsarray= new Array();
-var mymentorschanged=false;
-var loadtime=2000;  //delay on initial Pro loading
-var jsontime=400;	//delay before GetJson call to refresh
-
 //Json Specific Javascript Functions
 
 var jsonrelations;
 var jsonmembers;
 var jsonmembersall;
 var jsonmembersonly;
-var jsoneducation;
 var jsonactivities;
 var jsonactivityshellonly;
 var jsonmessages;
 var jsonfiles;
-var jsonaudiogram;
 var jsonassignments;
 var jsonassignmentsmine;
 var jsonhistorymine;
-var jsonnotesmine;
-var jsonmeasuresmine;
 var jsonresults;
 var jsonresultsmine;
 var jsonresultsminestringed;
@@ -99,14 +21,10 @@ var jsonrelationscount;
 var jsonmemberscount;
 var jsonmembersallcount;
 var jsonmembersonlycount;
-var jsoneducationcount;
-var jsonfilescount;
-var jsonaudiogramcount;
+var jsonfilesscount;
 var jsonassignmentscount;
 var jsonassignmentsminecount;
 var jsonhistoryminecount;
-var jsonnotesminecount;
-var jsonmeasuresminecount;
 var jsonactivitiescount;
 var jsonactivityshellonlycount;
 var jsonmessagescount=0;
@@ -118,40 +36,6 @@ var jsonbelmaterials;
 var jsonbelmaterialscount;
 var jsonshsmaterials;
 var jsonshsmaterialscount;
-
-// return the value of the radio button that is checked
-// return an empty string if none are checked, or
-// there are no radio buttons
-function getCheckedValue(radioname) {
-	var radioButtons = document.getElementsByName(radioname);
-	var selectedobject;
-	for (var x = 0; x < radioButtons.length; x ++) {
-		if (radioButtons[x].checked) {
-			selectedobject=radioButtons[x];
-		}
-	}
-	return selectedobject.value;
-}
-
-// set the radio button with the given value as being checked
-// do nothing if there are no radio buttons
-// if the given value does not exist, all the radio buttons
-// are reset to unchecked
-function setCheckedValue(radioObj, newValue) {
-	if(!radioObj)
-		return;
-	var radioLength = radioObj.length;
-	if(radioLength == undefined) {
-		radioObj.checked = (radioObj.value == newValue.toString());
-		return;
-	}
-	for(var i = 0; i < radioLength; i++) {
-		radioObj[i].checked = false;
-		if(radioObj[i].value == newValue.toString()) {
-			radioObj[i].checked = true;
-		}
-	}
-}
 
 function isinarray(arr,obj) {
     return (arr.indexOf(obj) != -1);
@@ -198,15 +82,21 @@ function GetJson(req, user, doafter) {
 	var jsondata;
 	$.ajax({  
 		type: 'POST',       
-		url: 'projson.php',         
+		url: 'https://www.teamaudiology.org/phonegap/php/projson.php',         
 		data: "requested="+req+"&user="+user,  
 		dataType: 'json',
 		cache: false,                           
 		success: function(data)
-		{
+		{                     
 			if(data.success == 'n')
 			{   
-				alert(req + ' data not available: ' + data.msg_status);
+				//alert(req + ' data not available: ' + data.msg_status);
+				settingsavailability="none";
+				if (req=="HistoryMine")
+				{
+					jsonhistorymine=null;
+					jsonhistoryminecount=0;
+				}		
 			}  
 			else  
 			{  
@@ -229,13 +119,11 @@ function GetJson(req, user, doafter) {
 					jsonmemberscount=count(jsonmembers);
 					if (doafter)
 					{
-						ShowDashboard();
+						if (isPhoneGapReady) 
+							{
+								showDatabaseStats();
+							}
 					}
-				}
-				if (req=="Education")
-				{
-					jsoneducation=jsondata;
-					jsoneducationcount=count(jsoneducation);
 				}
 				if (req=="Activities")
 				{
@@ -253,20 +141,11 @@ function GetJson(req, user, doafter) {
 				{
 					jsonmessages=jsondata;
 					jsonmessagescount=count(jsonmessages);
-					if (doafter)
-					{
-						ProInitialize(false);
-					}
 				}
 				if (req=="Files")
 				{
 					jsonfiles=jsondata;
 					jsonfilescount=count(jsonfiles);
-				}
-				if (req=="Audiogram")
-				{
-					jsonaudiogram=jsondata;
-					jsonaudiogramcount=count(jsonaudiogram);
 				}
 				if (req=="Results")
 				{
@@ -277,12 +156,6 @@ function GetJson(req, user, doafter) {
 				{
 					jsonresultsmine=jsondata;
 					jsonresultsminecount=count(jsonresultsmine);
-					//Post Processing in CallBack Function
-					if (doafter)
-					{
-						UpdateTabs();
-						UpdateMain(currenttab);
-					}
 				}
 				if (req=="Protocols")
 				{
@@ -293,22 +166,6 @@ function GetJson(req, user, doafter) {
 				{
 					jsonhistorymine=jsondata;
 					jsonhistoryminecount=count(jsonhistorymine);
-				}		
-				if (req=="NotesMine")
-				{
-					jsonnotesmine=jsondata;
-					jsonnotesminecount=count(jsonnotesmine);
-				}		
-				if (req=="MeasuresMine")
-				{
-					jsonmeasuresmine=jsondata;
-					jsonmeasuresminecount=count(jsonmeasuresmine);
-					//Post Processing in CallBack Function
-					if (doafter)
-					{
-						setTimeout("LoadArchivedMeasure()",1000);
-						setTimeout("CancelMeasure()",1200);
-					}
 				}		
 				if (req=="CustomSettings")
 				{
@@ -324,13 +181,6 @@ function GetJson(req, user, doafter) {
 				{
 					jsonassignmentsmine=jsondata;
 					jsonassignmentsminecount=count(jsonassignmentsmine);
-					//Post Processing in CallBack Function
-					if (doafter)
-					{
-						testcount=jsonassignmentsminecount;
-						UpdateTabs();
-						UpdateMain(currenttab);
-					}
 				}		
 				if (req=="BELmaterials")
 				{
