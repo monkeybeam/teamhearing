@@ -198,7 +198,7 @@ function GetJson(req, user, doafter) {
 	var jsondata;
 	$.ajax({  
 		type: 'POST',       
-		url: 'projson.php',         
+		url: 'https://www.teamaudiology.org/phonegap/php/projson.php',         
 		data: "requested="+req+"&user="+user,  
 		dataType: 'json',
 		cache: false,                           
@@ -227,9 +227,11 @@ function GetJson(req, user, doafter) {
 				{
 					jsonmembers=jsondata;
 					jsonmemberscount=count(jsonmembers);
+					alert(jsonmemberscount);
 					if (doafter)
 					{
 						//this part is different from the common.js in pro
+						alert("at doafter");
 						if (isPhoneGapReady) 
 							{
 								showDatabaseStats();

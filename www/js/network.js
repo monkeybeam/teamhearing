@@ -168,6 +168,7 @@ function onResume() {
 }
 
 function showDatabaseStats() {
+	alert("at showDatabaseStats");
 	document.getElementById("checkdatabase").innerHTML="Database is Connected";
 	document.getElementById("checkdatabasemembers").innerHTML=jsonmemberscount;
 	displayMyTeam();
