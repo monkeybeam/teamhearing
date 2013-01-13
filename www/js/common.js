@@ -229,7 +229,11 @@ function GetJson(req, user, doafter) {
 					jsonmemberscount=count(jsonmembers);
 					if (doafter)
 					{
-						ShowDashboard();
+						//this part is different from the common.js in pro
+						if (isPhoneGapReady) 
+							{
+								showDatabaseStats();
+							}
 					}
 				}
 				if (req=="Education")
