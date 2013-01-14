@@ -185,7 +185,9 @@ function MobileLogin()
 	  {
 		document.getElementById("msgbox").innerHTML="Login for " + guestname + " succeeded.";
 		// Connect to Database
-		GetJson("MembersOnly",guestname,true);		
+		alert(data)
+		guestid=data;
+		GetJson("MembersOnly",guestid,true);		
 	  }
 	});
 	return false; //not to post the  form physically
