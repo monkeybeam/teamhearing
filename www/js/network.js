@@ -185,7 +185,6 @@ function MobileLogin()
 	  {
 		document.getElementById("msgbox").innerHTML="Login for " + guestname + " succeeded.";
 		// Connect to Database
-		alert(data)
 		guestid=data;
 		GetJson("MembersOnly",guestid,true);		
 	  }

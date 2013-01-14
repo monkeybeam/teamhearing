@@ -232,7 +232,6 @@ function GetJson(req, user, doafter) {
 					if (doafter)
 					{
 						//this part is different from the common.js in pro
-						alert(version)
 						if (version=="mobile")
 						{
 							if (isPhoneGapReady) 
