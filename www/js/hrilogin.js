@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-
+	alert("document ready is triggered.");
 	$("#reportbug_form").submit(function()
 	{
 		//check the username exists or not from ajax
