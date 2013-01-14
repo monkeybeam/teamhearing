@@ -40,7 +40,6 @@ $(document).bind("pageload", function(event, data) {init(data.url);});
 window.onload = init;
  
 function init(url) {
-	alert("at network.js init()");
 	if (typeof url != 'string') { 
 		currentUrl = location.href; 
 	} else { 
@@ -168,7 +167,6 @@ function onResume() {
 }
 
 function showDatabaseStats() {
-	alert("at showDatabaseStats");
 	document.getElementById("checkdatabase").innerHTML="Database is Connected";
 	document.getElementById("checkdatabasemembers").innerHTML=jsonmemberscount;
 	displayMyTeam();
@@ -184,7 +182,7 @@ function displayMyTeam() {
 					+"<li data-theme='c'>"
                         +"<a href='#page7' data-transition='slide' "
 						+"id='"+ userprefix + i +"' "
-						+"SelectMember(this)>"
+						+"onclick='SelectMember(this)'>"
                         +jsonmembers[i].firstname+" "+jsonmembers[i].lastname
                         +"</a>"
                     +"</li>";
@@ -204,12 +202,17 @@ function SelectMember(userobject) {
 	memberindex = userobject.id.substring(4,userobject.id.length);
 	currentmember = jsonmembers[memberindex].username;
 	currentmemberid = jsonmembers[memberindex].userid;
-	alert(currentmember);
 	alert(currentmemberid);
 	document.getElementById("currentmembershown").innerHTML=currentmember;
 	document.getElementById("usernameshown").innerHTML=currentmember;
 	document.getElementById("firstnameshown").innerHTML=jsonmembers[memberindex].firstname;
 	document.getElementById("lastnameshown").innerHTML=jsonmembers[memberindex].lastname;
+	document.getElementById("emailshown").innerHTML=jsonmembers[memberindex].email;
+	document.getElementById("dobshown").innerHTML=jsonmembers[memberindex].dob;
+	document.getElementById("gendershown").innerHTML=jsonmembers[memberindex].gender;
+	document.getElementById("phoneshown").innerHTML=jsonmembers[memberindex].phone;
+	
+	
 	//document.getElementById("anchor"+memberindex).setAttribute("class", "active");
 	
 	// ???
