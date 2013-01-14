@@ -5,10 +5,11 @@ function StartLogin()
 	var loginusername=document.getElementById("username");
 	var loginpassword=document.getElementById("password");
 	var loginversion=document.getElementById("version");
+	alert(username);
 	//remove all the class add the messagebox classes and start fading
 	document.getElementById("msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
 	//check the username exists or not from ajax
-	$.post("dbcontrol.php",{ action:'login',username:loginusername,password:loginpassword,version:loginversion,rand:Math.random() } ,function(data)
+	$.post("https://www.teamaudiology.org/phonegap/php/dbcontrol.php",{ action:'login',username:loginusername,password:loginpassword,version:loginversion,rand:Math.random() } ,function(data)
 	{
 	  if(data=='no')  //login failed
 	  {
