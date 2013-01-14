@@ -75,9 +75,6 @@ function init(url) {
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
-	
-	// Connect to Database
-	GetJson("MembersOnly","alead1",true);
 }
 
 function executeEvents() { 
@@ -186,11 +183,11 @@ function MobileLogin()
 	  }
 	  else //the login detail is correct
 	  {
-		document.getElementById("msgbox").innerHTML="";
-		document.location='#page3';
+		document.getElementById("msgbox").innerHTML="Login for " + loginusername + " succeeded.";
+		// Connect to Database
+		GetJson("MembersOnly",loginusername,true);		
 	  }
 	});
-	
 	return false; //not to post the  form physically
 }
 
@@ -198,6 +195,7 @@ function showDatabaseStats() {
 	document.getElementById("checkdatabase").innerHTML="Database is Connected";
 	document.getElementById("checkdatabasemembers").innerHTML=jsonmemberscount;
 	displayMyTeam();
+	document.location='#page3';	
 }
 
 function displayMyTeam() {
@@ -217,7 +215,6 @@ function displayMyTeam() {
 	}
     myteamcontent=myteamcontent+"</ul>";
 	document.getElementById("myteamlist").innerHTML=myteamcontent;
-
 }
 
 function SelectMember(userobject) {
