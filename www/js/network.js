@@ -205,6 +205,10 @@ function SelectMember(userobject) {
 	currentmemberid = jsonmembers[memberindex].userid;
 	alert(currentmember);
 	alert(currentmemberid);
+	document.getElementById("currentmembershown").innerHTML=currentmember;
+	document.getElementById("usernameshown").innerHTML=currentmember;
+	document.getElementById("firstnameshown").innerHTML=jsonmembers[memberindex].firstname;
+	document.getElementById("lastnameshown").innerHTML=jsonmembers[memberindex].lastname;
 	//document.getElementById("anchor"+memberindex).setAttribute("class", "active");
 	
 	// ???
