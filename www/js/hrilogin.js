@@ -5,14 +5,16 @@ function StartLogin()
 	var loginusername=document.getElementById("username");
 	var loginpassword=document.getElementById("password");
 	var loginversion=document.getElementById("version");
-	alert(username);
+	alert(loginusername);
 	//remove all the class add the messagebox classes and start fading
 	document.getElementById("msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
+	alert(loginpassword);
 	//check the username exists or not from ajax
 	$.post("https://www.teamaudiology.org/phonegap/php/dbcontrol.php",{ action:'login',username:loginusername,password:loginpassword,version:loginversion,rand:Math.random() } ,function(data)
 	{
 	  if(data=='no')  //login failed
 	  {
+		alert("login failed");
 		document.getElementById("msgbox").fadeTo(200,0.1,function() //start fading the messagebox
 		{ 
 		  //add message and change the class of the box and start fading
@@ -21,6 +23,7 @@ function StartLogin()
 	  }
 	  else //the login detail is correct
 	  {
+		alert("login worked");
 		document.getElementById("msgbox").fadeTo(200,0.1,function()  //start fading the messagebox
 		{ 
 		  //add message and change the class of the box and start fading
@@ -41,7 +44,8 @@ function StartLogin()
 				document.location='shellonly.php';
 				break;
 			case "mobile":
-				document.location='http://www.teamaudiology.org/lite/index.html#page3';				
+				alert("at mobile");
+				document.location='index.html#page3';				
 				break;
 			default:
 				document.location='pro.php';
