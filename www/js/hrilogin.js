@@ -21,25 +21,8 @@ function StartLogin()
 	  else //the login detail is correct
 	  {
 		alert("login worked");
-		document.getElementById("msgbox").innerHTML="Logging in..";
-		switch (loginversion)
-		{
-		case "professional":
-			document.location='pro.php';
-			break;
-		case "legacy":			
-			document.location='legacyhome.php';
-			break;
-		case "shell":
-			document.location='shellonly.php';
-			break;
-		case "mobile":
-			alert("at mobile");
-			document.location='index.html#page3';				
-			break;
-		default:
-			document.location='pro.php';
-		}		
+		document.location='#page3';
+	  }
 	});
 	
 	return false; //not to post the  form physically
