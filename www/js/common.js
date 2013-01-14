@@ -228,11 +228,9 @@ function GetJson(req, user, doafter) {
 				{
 					jsonmembers=jsondata;
 					jsonmemberscount=count(jsonmembers);
-					alert(jsonmemberscount);
 					if (doafter)
 					{
 						//this part is different from the common.js in pro
-						alert("at doafter");
 						if (isPhoneGapReady) 
 							{
 								showDatabaseStats();
