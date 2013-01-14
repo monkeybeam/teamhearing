@@ -196,9 +196,10 @@ function GetJsonIndex(req, user)
 
 function GetJson(req, user, doafter) {
 	var jsondata;
+	var projsonurl='https://www.teamaudiology.org/phonegap/php/projson.php'; //IMPORTANT: This path is different from the one used by pro.php
 	$.ajax({  
 		type: 'POST',       
-		url: 'https://www.teamaudiology.org/phonegap/php/projson.php',         
+		url: projsonurl,         
 		data: "requested="+req+"&user="+user,  
 		dataType: 'json',
 		cache: false,                           

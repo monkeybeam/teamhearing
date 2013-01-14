@@ -176,12 +176,15 @@ function showDatabaseStats() {
 
 function displayMyTeam() {
 	var myteamcontent="";
+	var userprefix = 'user';
 	myteamcontent=myteamcontent+"<ul data-role='listview' data-divider-theme='b' data-inset='true'>";
 	for (i=0;i<jsonmemberscount;i++)
 	{
         myteamcontent=myteamcontent
 					+"<li data-theme='c'>"
-                        +"<a href='#page7' data-transition='slide'>"
+                        +"<a href='#page7' data-transition='slide' "
+						+"id='"+ userprefix + i +
+						+"SelectMember(this)>"
                         +jsonmembers[i].firstname+" "+jsonmembers[i].lastname
                         +"</a>"
                     +"</li>";
@@ -189,4 +192,39 @@ function displayMyTeam() {
     myteamcontent=myteamcontent+"</ul>";
 	document.getElementById("myteamlist").innerHTML=myteamcontent;
 
+}
+
+function SelectMember(userobject) {
+	// start on Profile?
+	//if (currenttab == "Results")
+	//	{currenttab = 'Profile';}
+	
+	// ???
+	memberindex = userobject.id.substring(4,userobject.id.length);
+	currentmember = jsonmembers[memberindex].username;
+	currentmemberid = jsonmembers[memberindex].userid;
+	alert(currentmember);
+	alert(currentmemberid);
+	//document.getElementById("anchor"+memberindex).setAttribute("class", "active");
+	
+	// ???
+	//for (i=0;i<jsonmemberscount;i++)
+	//{	
+	//	if (i!=parseInt(memberindex))
+	//	{document.getElementById("anchor"+i).setAttribute("class", "link");}
+	//}
+	
+	//dashboardbarcontent = "<div id='dashboardbar'>"+dashboardbutton+"<span id='dashmessage'>"
+	//+jsonmembers[memberindex].firstname+" "+jsonmembers[memberindex].lastname+"</span></div>";
+	
+	//Note: UpdateMain and UpdateTabs is redundant here but necessary to avoid delay of GetJson call
+	//UpdateTabs();
+	//$('#middle').html("<div id='maincenter'></div>");
+//	UpdateMain(currenttab);
+	GetJson("Education",currentmemberid,false);
+	GetJson("HistoryMine",currentmemberid,false);
+	GetJson("NotesMine",currentmemberid,false);
+	GetJson("AssignmentsMine",currentmemberid,false);
+	GetJson("ResultsMine",currentmemberid,true);
+	GetJson("MeasuresMine",currentmemberid,false);
 }
