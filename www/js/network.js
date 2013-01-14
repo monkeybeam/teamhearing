@@ -230,8 +230,8 @@ function SelectMember(userobject) {
 	currentmember = jsonmembers[memberindex].username;
 	currentmemberid = jsonmembers[memberindex].userid;
 	var currentfullname = jsonmembers[memberindex].firstname + " " + jsonmembers[memberindex].lastname;
+
 	document.getElementById("currentmembershown").innerHTML=currentfullname;
-	document.getElementById("bread_member").innerHTML=currentfullname;
 	document.getElementById("usernameshown").innerHTML=currentmember;
 	document.getElementById("firstnameshown").innerHTML=jsonmembers[memberindex].firstname;
 	document.getElementById("lastnameshown").innerHTML=jsonmembers[memberindex].lastname;
@@ -240,7 +240,11 @@ function SelectMember(userobject) {
 	document.getElementById("gendershown").innerHTML=jsonmembers[memberindex].gender;
 	document.getElementById("phoneshown").innerHTML=jsonmembers[memberindex].phone;
 	 
-	
+	var currentbread = "My Team";
+	document.getElementById("breadlevel1").innerHTML=currentbread;
+	document.getElementById("breadlevel2").innerHTML=currentfullname;
+	document.getElementById("breadlevel3").innerHTML="Records";
+		
 	//document.getElementById("anchor"+memberindex).setAttribute("class", "active");
 	
 	// ???
