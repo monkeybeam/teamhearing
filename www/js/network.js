@@ -183,7 +183,7 @@ function displayMyTeam() {
         myteamcontent=myteamcontent
 					+"<li data-theme='c'>"
                         +"<a href='#page7' data-transition='slide' "
-						+"id='"+ userprefix + i +
+						+"id='"+ userprefix + i +"' "
 						+"SelectMember(this)>"
                         +jsonmembers[i].firstname+" "+jsonmembers[i].lastname
                         +"</a>"
@@ -195,6 +195,7 @@ function displayMyTeam() {
 }
 
 function SelectMember(userobject) {
+	alert("at SelectMember");
 	// start on Profile?
 	//if (currenttab == "Results")
 	//	{currenttab = 'Profile';}
