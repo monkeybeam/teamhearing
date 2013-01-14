@@ -168,14 +168,14 @@ function MobileLogin()
 	//mobile version only needs this function in lieu of hrilogin.js
 	
 	//get variables
-	var loginusername=document.getElementById("username").value;
-	var loginpassword=document.getElementById("password").value;
-	var loginversion=document.getElementById("version").value;
+	guestname=document.getElementById("username").value;
+	guestpassword=document.getElementById("password").value;
+	version=document.getElementById("version").value;
 	//remove all the class add the messagebox classes and start fading
 	//document.getElementById("msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
 	document.getElementById("msgbox").innerHTML="Validating...";
 	//this dbcontrol.php file is a copy for phonegap use
-	$.post("https://www.teamaudiology.org/phonegap/php/dbcontrol.php",{ action:'login',username:loginusername,password:loginpassword,version:loginversion,rand:Math.random() } ,function(data)
+	$.post("https://www.teamaudiology.org/phonegap/php/dbcontrol.php",{ action:'login',username:guestname,password:guestpassword,version:version,rand:Math.random() } ,function(data)
 	{
 	  if(data=='no')  //login failed
 	  {
@@ -183,9 +183,9 @@ function MobileLogin()
 	  }
 	  else //the login detail is correct
 	  {
-		document.getElementById("msgbox").innerHTML="Login for " + loginusername + " succeeded.";
+		document.getElementById("msgbox").innerHTML="Login for " + guestname + " succeeded.";
 		// Connect to Database
-		GetJson("MembersOnly",loginusername,true);		
+		GetJson("MembersOnly",guestname,true);		
 	  }
 	});
 	return false; //not to post the  form physically

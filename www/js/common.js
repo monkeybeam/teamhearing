@@ -63,6 +63,7 @@ function ddSlide(c,d){
 var currentmember="";
 var currentmemberid="";
 var guestname="";
+var guestpassword="";
 var guestid="";
 var guestrole="";
 var version="";
@@ -196,7 +197,7 @@ function GetJsonIndex(req, user)
 
 function GetJson(req, user, doafter) {
 	var jsondata;
-	var projsonurl='https://www.teamaudiology.org/phonegap/php/projson.php'; //IMPORTANT: This path is different from the one used by pro.php
+	var projsonurl='https://www.teamaudiology.org/projson.php';
 	$.ajax({  
 		type: 'POST',       
 		url: projsonurl,         
@@ -231,10 +232,19 @@ function GetJson(req, user, doafter) {
 					if (doafter)
 					{
 						//this part is different from the common.js in pro
-						if (isPhoneGapReady) 
-							{
-								showDatabaseStats();
-							}
+						alert(version)
+						if (version=="mobile")
+						{
+							if (isPhoneGapReady) 
+								{
+									showDatabaseStats();
+								}
+						}
+						else
+						{
+							//version is Pro
+							ShowDashboard();
+						}
 					}
 				}
 				if (req=="Education")
