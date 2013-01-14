@@ -168,6 +168,8 @@ function onResume() {
 
 function MobileLogin()
 {
+	//mobile version only needs this function in lieu of hrilogin.js
+	
 	//get variables
 	var loginusername=document.getElementById("username").value;
 	var loginpassword=document.getElementById("password").value;
@@ -175,7 +177,7 @@ function MobileLogin()
 	//remove all the class add the messagebox classes and start fading
 	//document.getElementById("msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
 	document.getElementById("msgbox").innerHTML="Validating...";
-	//check the username exists or not from ajax
+	//this dbcontrol.php file is a copy for phonegap use
 	$.post("https://www.teamaudiology.org/phonegap/php/dbcontrol.php",{ action:'login',username:loginusername,password:loginpassword,version:loginversion,rand:Math.random() } ,function(data)
 	{
 	  if(data=='no')  //login failed
@@ -184,6 +186,7 @@ function MobileLogin()
 	  }
 	  else //the login detail is correct
 	  {
+		document.getElementById("msgbox").innerHTML="";
 		document.location='#page3';
 	  }
 	});
