@@ -203,7 +203,7 @@ function SelectMember(userobject) {
 	currentmemberid = jsonmembers[memberindex].userid;
 	var currentfullname = jsonmembers[memberindex].firstname + " " + jsonmembers[memberindex].lastname;
 	document.getElementById("currentmembershown").innerHTML=currentfullname;
-	document.getElementById("breadmember").innerHTML=currentfullname;
+	document.getElementById("bread_member").innerHTML=currentfullname;
 	document.getElementById("usernameshown").innerHTML=currentmember;
 	document.getElementById("firstnameshown").innerHTML=jsonmembers[memberindex].firstname;
 	document.getElementById("lastnameshown").innerHTML=jsonmembers[memberindex].lastname;
