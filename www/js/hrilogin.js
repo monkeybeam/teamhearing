@@ -2,9 +2,9 @@ function StartLogin()
 {
 	alert("at login form");
 	//get variables
-	var loginusername=document.getElementById("username");
-	var loginpassword=document.getElementById("password");
-	var loginversion=document.getElementById("version");
+	var loginusername=document.getElementById("username").innerHTML;
+	var loginpassword=document.getElementById("password").innerHTML;
+	var loginversion=document.getElementById("version").innerHTML;
 	alert(loginusername);
 	//remove all the class add the messagebox classes and start fading
 	document.getElementById("msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
