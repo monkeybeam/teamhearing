@@ -193,7 +193,6 @@ function displayMyTeam() {
 }
 
 function SelectMember(userobject) {
-	alert("at SelectMember");
 	// start on Profile?
 	//if (currenttab == "Results")
 	//	{currenttab = 'Profile';}
@@ -202,8 +201,9 @@ function SelectMember(userobject) {
 	memberindex = userobject.id.substring(4,userobject.id.length);
 	currentmember = jsonmembers[memberindex].username;
 	currentmemberid = jsonmembers[memberindex].userid;
-	alert(currentmemberid);
-	document.getElementById("currentmembershown").innerHTML=currentmember;
+	var currentfullname = jsonmembers[memberindex].firstname + " " + jsonmembers[memberindex].lastname;
+	document.getElementById("currentmembershown").innerHTML=currentfullname;
+	document.getElementById("breadmember").innerHTML=currentfullname;
 	document.getElementById("usernameshown").innerHTML=currentmember;
 	document.getElementById("firstnameshown").innerHTML=jsonmembers[memberindex].firstname;
 	document.getElementById("lastnameshown").innerHTML=jsonmembers[memberindex].lastname;
@@ -211,7 +211,7 @@ function SelectMember(userobject) {
 	document.getElementById("dobshown").innerHTML=jsonmembers[memberindex].dob;
 	document.getElementById("gendershown").innerHTML=jsonmembers[memberindex].gender;
 	document.getElementById("phoneshown").innerHTML=jsonmembers[memberindex].phone;
-	
+	 
 	
 	//document.getElementById("anchor"+memberindex).setAttribute("class", "active");
 	
