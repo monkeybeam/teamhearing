@@ -60,12 +60,47 @@
                         </b>
                     </p>
                 </div>
-                <div data-role="fieldcontain">
+				
+
+			<!-- Login Form -->
+			<form action="#" method="post" id="login_form">
+			<table id="logintable">
+				<tr>
+					<td>
+						<label class="username">
+						<span style="margin-top:15px;font-size:24px;">Username</span><br />
+						<input style="margin-top:15px;font-size:24px;" type="edit" name="username" id="username" value="" size="23" />
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="password">
+						<span style="margin-top:15px;font-size:24px;">Password</span><br />
+						<input style="margin-top:15px;font-size:24px;" type="password" name="password" id="password" size="23" />
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span style="margin-top:15px;font-size:24px;"> </span><br />
+						<input style="margin-top:15px;font-size:24px;" type="submit" name="Submit" id="submit" value="Login" class="bt_login" />
+						<span style="font-size:14px;"><a href='reset.php'>Forgot your password?</a></span>
+						<span id="msgbox" style="font-size:11px;display:none;"></span>
+					</td>
+				</tr>
+			</table>
+			<input type='hidden' id='version' value='professional'>
+			</form>
+
+				
+			<form action="#" method="post" id="login_form">
+				<div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="textinput1">
                             Username
                         </label>
-                        <input name="" id="textinput1" placeholder="" value="" type="text">
+                        <input name="username" id="username"  id="textinput1" placeholder="" value="" type="text">
                     </fieldset>
                 </div>
                 <div data-role="fieldcontain">
@@ -73,12 +108,22 @@
                         <label for="textinput2">
                             Password
                         </label>
-                        <input name="" id="textinput2" placeholder="" value="" type="text">
+                        <input name="password" id="password"  placeholder="" value="" type="password">
                     </fieldset>
                 </div>
-                <a data-role="button" href="#page3">
+				<input type="submit" name="Submit" id="submit" value="Login" />
+				
+<!--                 <a data-role="button" href="#page3">
                     Login
-                </a>
+                </a> -->
+			<input type='hidden' id='version' value='mobile'>
+			<br />
+			<span id="msgbox" style="font-size:11px;display:none;"></span>
+			</form>
+				
+				
+				
+				
 				<br />
 				<br />
 				ready? <span id='checkisphonegapready'></span> platform? <span id='checkdeviceplatform'></span>				
