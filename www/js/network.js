@@ -255,12 +255,13 @@ function displayAssignments() {
 function displayFiles() {
 	var myfilescount=0;
 	var mcontent="<ul data-role='listview' data-divider-theme='b' data-inset='true'>";
+	var fileprefix="file";
 	for (i=0;i<jsonfilescount;i++)
 	{
 		if (currentmemberid==jsonfiles[i].userid){
 			myfilescount=myfilescount+1;
 			mcontent=mcontent+"<li data-theme='c'>"
-                    +"<a href='#page15' data-transition='slide'>"
+                    +"<a href='#page15' data-transition='slide' onclick='SelectFile(this)' id='"+ fileprefix + i +"'>"
                     +jsonfiles[i].uploaddate + " " + jsonfiles[i].filename
                     +"</a>"
                     +"</li>";
@@ -269,6 +270,11 @@ function displayFiles() {
 	document.getElementById("filescountshown").innerHTML=myfilescount + " out of " + jsonfilescount;	
 	mcontent=mcontent+"</ul>";
 	document.getElementById("fileslist").innerHTML=mcontent;	
+}
+
+function SelectFile(fileobject) {
+	var fileindex = fileobject.id.substring(4,fileobject.id.length);
+	document.getElementById("filedetail").innerHTML=jsonfiles[fileindex].uploaddate + " " + jsonfiles[fileindex].filename;
 }
 
 function displayResults() {
