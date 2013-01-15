@@ -220,7 +220,7 @@ function displayAssignments() {
 	var oneprotodetail = "";
 	var myprotocollist = new Array();
 	
-	var mcontent = "<div data-role='collapsible-set'>";
+	var mcontent = "";
 	//Accordion for Protocols Assigned
 	if (jsonassignmentsminecount > 0) {
 		//
@@ -233,7 +233,7 @@ function displayAssignments() {
 				myprotocollist.push(nowprotocolid);
 				if (acounter>0) {
 					mcontent = mcontent + "<div data-role='collapsible'>"
-						+ "<h3><a href='#'>"+jsonassignmentsmine[acounter-1].protocolgroup + ": " + jsonassignmentsmine[acounter-1].protocolname +"<img src='images/pro/button_delete.png' id="+ jsonassignmentsmine[acounter-1].protocolid +" style='height:20px;float:right;' onclick='DeleteAssignment(2,"+jsonassignmentsmine[acounter-1].protocolid+","+jsonmembers[memberindex].userid+");'></a></h3>"
+						+ "<h3>"+jsonassignmentsmine[acounter-1].protocolgroup + ": " + jsonassignmentsmine[acounter-1].protocolname +"</h3>"
 						+ "<div>"+oneprotodetail+"</div>"
 						+ "</div>";
 				}
@@ -244,11 +244,10 @@ function displayAssignments() {
 		
 		//output the very last protocol
 		mcontent = mcontent + "<div data-role='collapsible'>"
-			+ "<h3><a href='#'>"+jsonassignmentsmine[acounter-1].protocolgroup + ": " + jsonassignmentsmine[acounter-1].protocolname +"<img src='images/pro/button_delete.png'  id="+ jsonassignmentsmine[acounter-1].protocolid +" style='height:20px;float:right;' onclick='DeleteAssignment(2,"+jsonassignmentsmine[acounter-1].protocolid+","+jsonmembers[memberindex].userid+");'></a></h3>"
+			+ "<h3>"+jsonassignmentsmine[acounter-1].protocolgroup + ": " + jsonassignmentsmine[acounter-1].protocolname +"</h3>"
 			+ "<div>"+oneprotodetail+"</div>"
 			+ "</div>";
 	}
-	mcontent=mcontent+"</div>";
 	document.getElementById("assignmentslist").innerHTML=mcontent;
 }
 
@@ -274,5 +273,6 @@ function SelectMember(userobject) {
 	GetJson("NotesMine",currentmemberid,false);
 	GetJson("AssignmentsMine",currentmemberid,false);
 	GetJson("ResultsMine",currentmemberid,true);
+	
 	GetJson("MeasuresMine",currentmemberid,false);
 }
