@@ -216,6 +216,40 @@ function displayMyTeam() {
 
 function displayAssignments() {
 	document.getElementById("assignmentscountshown").innerHTML=jsonassignmentsminecount;
+	var nowprotocolid = "";
+	var oneprotodetail = "";
+	var myprotocollist = new Array();
+	
+	var mcontent = "<div data-role='collapsible-set'>";
+	//Accordion for Protocols Assigned
+	if (jsonassignmentsminecount > 0) {
+		//
+		var acounter = 0;
+		for (acounter=0;acounter<jsonassignmentsminecount;acounter++) {
+			if (jsonassignmentsmine[acounter].protocolid==nowprotocolid) {
+				//does not need a new accordion bar
+			} else {
+				nowprotocolid = jsonassignmentsmine[acounter].protocolid;
+				myprotocollist.push(nowprotocolid);
+				if (acounter>0) {
+					mcontent = mcontent + "<div data-role='collapsible'>"
+						+ "<h3><a href='#'>"+jsonassignmentsmine[acounter-1].protocolgroup + ": " + jsonassignmentsmine[acounter-1].protocolname +"<img src='images/pro/button_delete.png' id="+ jsonassignmentsmine[acounter-1].protocolid +" style='height:20px;float:right;' onclick='DeleteAssignment(2,"+jsonassignmentsmine[acounter-1].protocolid+","+jsonmembers[memberindex].userid+");'></a></h3>"
+						+ "<div>"+oneprotodetail+"</div>"
+						+ "</div>";
+				}
+				oneprotodetail = "";
+			}
+			oneprotodetail = oneprotodetail + Decoder(jsonassignmentsmine[acounter].activitykey,jsonassignmentsmine[acounter].testkey,"htmlshort") + "<br />";
+		}
+		
+		//output the very last protocol
+		mcontent = mcontent + "<div data-role='collapsible'>"
+			+ "<h3><a href='#'>"+jsonassignmentsmine[acounter-1].protocolgroup + ": " + jsonassignmentsmine[acounter-1].protocolname +"<img src='images/pro/button_delete.png'  id="+ jsonassignmentsmine[acounter-1].protocolid +" style='height:20px;float:right;' onclick='DeleteAssignment(2,"+jsonassignmentsmine[acounter-1].protocolid+","+jsonmembers[memberindex].userid+");'></a></h3>"
+			+ "<div>"+oneprotodetail+"</div>"
+			+ "</div>";
+	}
+	mcontent=mcontent+"</div>";
+	document.getElementById("assignmentslist").innerHTML=mcontent;
 }
 
 function SelectMember(userobject) {
