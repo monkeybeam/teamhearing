@@ -309,7 +309,7 @@ function GetOneResult(i){
 	{completiontime=jsonresultsmine[i].completion.substr(5,11);}
 	else
 	{completiontime=jsonresultsmine[i].completion.substr(11,5);}
-	content=content + "<div style='float:left;width:20%;'>" + completiontime + "</div><div style='float:left;width:40%'>" + Decoder(jsonresultsmine[i].activitykey,jsonresultsmine[i].testkey,"htmlshort") + "</div><div class='clear'></div>";
+	content=content + completiontime + " &nbsp;&nbsp;&nbsp;" + Decoder(jsonresultsmine[i].activitykey,jsonresultsmine[i].testkey,"htmlshort") + "</br>";
 	return content;
 }
 
