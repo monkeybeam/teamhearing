@@ -201,7 +201,7 @@ function GetJson(req, user, doafter) {
 	if (version=="mobile")
 	{
 		//IMPORTANT: for the mobile version, the full path is essential
-		projsonurl='https://www.teamaudiology.org/projson.php';	
+		projsonurl='http://www.teamaudiology.org/projson.php';	
 	}
 	$.ajax({  
 		type: 'POST',       
