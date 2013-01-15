@@ -165,16 +165,12 @@ function onResume() {
 
 function MobileLogin()
 {
-	//mobile version only needs this function in lieu of hrilogin.js
-	
 	//get variables
 	guestname=document.getElementById("username").value;
 	guestpassword=document.getElementById("password").value;
 	version=document.getElementById("version").value;
-	//remove all the class add the messagebox classes and start fading
-	//document.getElementById("msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
 	document.getElementById("msgbox").innerHTML="Validating...";
-	//this dbcontrol.php file is a copy for phonegap use
+	//Note: no difference in dbcontrol.php from pro and mobile versions
 	$.post("https://www.teamaudiology.org/dbcontrol.php",{ action:'login',username:guestname,password:guestpassword,version:version,rand:Math.random() } ,function(data)
 	{
 	  if(data=='no')  //login failed
@@ -218,12 +214,11 @@ function displayMyTeam() {
 	document.getElementById("myteamlist").innerHTML=myteamcontent;
 }
 
+function displayAssignments() {
+	document.getElementById("assignmentscountshown").innerHTML=jsonassignmentsminecount;
+}
+
 function SelectMember(userobject) {
-	// start on Profile?
-	//if (currenttab == "Results")
-	//	{currenttab = 'Profile';}
-	
-	// ???
 	memberindex = userobject.id.substring(4,userobject.id.length);
 	currentmember = jsonmembers[memberindex].username;
 	currentmemberid = jsonmembers[memberindex].userid;
@@ -240,22 +235,6 @@ function SelectMember(userobject) {
 	 
 	document.getElementById("breadlevel2").innerHTML=currentfullname;
 		
-	//document.getElementById("anchor"+memberindex).setAttribute("class", "active");
-	
-	// ???
-	//for (i=0;i<jsonmemberscount;i++)
-	//{	
-	//	if (i!=parseInt(memberindex))
-	//	{document.getElementById("anchor"+i).setAttribute("class", "link");}
-	//}
-	
-	//dashboardbarcontent = "<div id='dashboardbar'>"+dashboardbutton+"<span id='dashmessage'>"
-	//+jsonmembers[memberindex].firstname+" "+jsonmembers[memberindex].lastname+"</span></div>";
-	
-	//Note: UpdateMain and UpdateTabs is redundant here but necessary to avoid delay of GetJson call
-	//UpdateTabs();
-	//$('#middle').html("<div id='maincenter'></div>");
-//	UpdateMain(currenttab);
 	GetJson("Education",currentmemberid,false);
 	GetJson("HistoryMine",currentmemberid,false);
 	GetJson("NotesMine",currentmemberid,false);
