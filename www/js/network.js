@@ -254,13 +254,21 @@ function displayAssignments() {
 
 function displayFiles() {
 	var myfilescount=0;
+	var mcontent="<ul data-role='listview' data-divider-theme='b' data-inset='true'>";
 	for (i=0;i<jsonfilescount;i++)
 	{
 		if (currentmemberid==jsonfiles[i].userid){
 			myfilescount=myfilescount+1;
+			mcontent=mcontent+"<li data-theme='c'>"
+                    +"<a href='#page15' data-transition='slide'>"
+                    +jsonfiles[i].uploaddate + " " + jsonfiles[i].filename
+                    +"</a>"
+                    +"</li>";
 		}
 	}
 	document.getElementById("filescountshown").innerHTML=myfilescount + " out of " + jsonfilescount;	
+	mcontent=mcontent+"</ul>";
+	document.getElementById("fileslist").innerHTML=mcontent;	
 }
 
 function displayResults() {
