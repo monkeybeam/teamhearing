@@ -355,7 +355,11 @@ function SelectMember(userobject) {
 	document.getElementById("gendershown").innerHTML=jsonmembers[memberindex].gender;
 	document.getElementById("phoneshown").innerHTML=jsonmembers[memberindex].phone;
 	 
-	document.getElementById("breadlevel2").innerHTML=currentfullname;
+	document.getElementById("breadlevel2a").innerHTML=currentfullname;
+	document.getElementById("breadlevel2b").innerHTML=currentfullname;
+	document.getElementById("breadlevel2c").innerHTML=currentfullname;
+	document.getElementById("breadlevel2d").innerHTML=currentfullname;
+	document.getElementById("breadlevel2e").innerHTML=currentfullname;
 		
 	GetJson("Education",currentmemberid,false);
 	GetJson("NotesMine",currentmemberid,false);
