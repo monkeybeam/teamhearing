@@ -220,7 +220,7 @@ function displayAssignments() {
 	var oneprotodetail = "";
 	var myprotocollist = new Array();
 	
-	var mcontent = "";
+	var mcontent = "<div data-role='collapsible-set'>";
 	//Accordion for Protocols Assigned
 	if (jsonassignmentsminecount > 0) {
 		//
@@ -248,7 +248,69 @@ function displayAssignments() {
 			+ "<div>"+oneprotodetail+"</div>"
 			+ "</div>";
 	}
+	mcontent=mcontent+"</div>";
 	document.getElementById("assignmentslist").innerHTML=mcontent;
+}
+
+function displayResults() {
+	var nowprotocolinstance="";
+	var onesetdetail="";
+	var myprotocolinstance = new Array();
+	var acounter=0;
+	var dateonly="";
+	var mcontent = "<div data-role='collapsible-set'>";
+
+	if (jsonresultsminecount!=0)
+	{
+		for (acounter=0;acounter<jsonresultsminecount;acounter++)
+		{
+			if (jsonresultsmine[acounter].protocolinstance!=nowprotocolinstance)	
+			{	//display protocol set after instance changed
+				nowprotocolinstance=jsonresultsmine[acounter].protocolinstance;
+				myprotocolinstance.push(nowprotocolinstance);
+				if (acounter>0)
+				{
+					dateonly=jsonresultsmine[acounter-1].completion.substring(0,10);				
+					mcontent = mcontent + "<div data-role='collapsible'>"
+					+ "<h3>"+ dateonly + " "+ GetProtocolInfo(jsonresultsmine[acounter-1].protocolid) +"</h3>"
+					+ "<div>"+onesetdetail+"</div>"
+					+ "</div>";
+				}
+				onesetdetail="";
+			}
+			onesetdetail=onesetdetail + GetOneResult(acounter);
+		}
+		//output the very last set
+		var verylastset= "<div data-role='collapsible'>"
+			+ "<h3>"+ dateonly + " "+ GetProtocolInfo(jsonresultsmine[acounter-1].protocolid) +"</h3>"
+			+ "<div>"+onesetdetail+"</div>"
+			+ "</div>";					
+		mcontent = mcontent + verylastset;
+	}
+	mcontent=mcontent+"</div>";
+	document.getElementById("resultslist").innerHTML=mcontent;
+}
+
+function GetProtocolInfo(protoid) {
+	var protocolinfo="Single Tests";
+	for (i=0;i<jsonprotocolscount;i++) {
+		if (jsonprotocols[i].protocolid==protoid)
+		{
+			protocolinfo=jsonprotocols[i].protocolgroup + ": " + jsonprotocols[i].protocolname;
+		}
+	}
+	return protocolinfo;
+}
+
+function GetOneResult(i){
+	var content="";
+	var completiontime="";
+	if (jsonresultsmine[i].protocolinstance=="0")
+	{completiontime=jsonresultsmine[i].completion.substr(5,11);}
+	else
+	{completiontime=jsonresultsmine[i].completion.substr(11,5);}
+	content=content + "<div style='float:left;width:20%;'>" + completiontime + "</div><div style='float:left;width:40%'>" + Decoder(jsonresultsmine[i].activitykey,jsonresultsmine[i].testkey,"htmlshort") + "</div><div class='clear'></div>";
+	return content;
 }
 
 function SelectMember(userobject) {

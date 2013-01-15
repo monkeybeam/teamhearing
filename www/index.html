@@ -198,7 +198,7 @@
                         </a>
                     </li>
                     <li data-theme="c">
-                        <a href="#page13" data-transition="slide">
+                        <a href="#page13" data-transition="slide" onclick='displayResults()'>
                             Results
                         </a>
                     </li>
@@ -474,7 +474,7 @@
                 <h3>
                     Assignments (<span id='assignmentscountshown'></span>)
                 </h3>
-				<div data-role='collapsible-set' id='assignmentslist'>
+				<div id='assignmentslist'>
 				</div>
             </div>
         </div>
@@ -509,70 +509,8 @@
                 <h3>
                     Results
                 </h3>
-                <div data-role="collapsible-set">
-                    <div data-role="collapsible">
-                        <h3>
-                            12/11/2012: Single Tests
-                        </h3>
-                        <div>
-                            <p>
-                                <span style="font-size: x-small;">
-                                    12-06 11:32&nbsp;&nbsp; &nbsp;CARE ID Vowels Full&nbsp;&nbsp; &nbsp;8.33%
-                                </span>
-                                <br>
-                                <span style="font-size: x-small;">
-                                    12-06 11:27&nbsp;&nbsp; &nbsp;Percept Harmonic&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                                    0.50%
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                    <div data-role="collapsible">
-                        <h3>
-                            12/03/2012: Phoneme Tests
-                        </h3>
-                        <div>
-                            <p>
-                                <span style="font-size: x-small;">
-                                    12-06 11:32&nbsp;&nbsp; &nbsp;CARE ID Vowels Full&nbsp;&nbsp; &nbsp;8.33%
-                                </span>
-                                <br>
-                                <span style="font-size: x-small;">
-                                    12-06 11:24 &nbsp;&nbsp; CARE ID Vowels Full&nbsp;&nbsp;&nbsp; 4.22%
-                                </span>
-                                <br>
-                            </p>
-                        </div>
-                    </div>
-                    <div data-role="collapsible">
-                        <h3>
-                            11/30/2012: Harmonic Pitch
-                        </h3>
-                        <div>
-                            <p>
-                                <span style="font-size: x-small;">
-                                    11-30 04:55&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.25%
-                                </span>
-                                <br>
-                                <span style="font-size: x-small;">
-                                    11-28 12:30&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.75%
-                                </span>
-                                <br>
-                                <span style="font-size: x-small;">
-                                    11-26 08:16&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.25%
-                                </span>
-                                <br>
-                                <span style="font-size: x-small;">
-                                    11-26 04:49&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 0.50%
-                                </span>
-                                <br>
-                                <span style="font-size: x-small;">
-                                    11-30 04:55&nbsp;&nbsp;&nbsp; Percept Harmonic&nbsp;&nbsp; 1.75%
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+				<div id='resultslist'>
+				</div>
             </div>
         </div>
         <!-- One Sender -->
