@@ -175,7 +175,7 @@ function MobileLogin()
 	//document.getElementById("msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
 	document.getElementById("msgbox").innerHTML="Validating...";
 	//this dbcontrol.php file is a copy for phonegap use
-	$.post("https://www.teamaudiology.org/phonegap/php/dbcontrol.php",{ action:'login',username:guestname,password:guestpassword,version:version,rand:Math.random() } ,function(data)
+	$.post("https://www.teamaudiology.org/dbcontrol.php",{ action:'login',username:guestname,password:guestpassword,version:version,rand:Math.random() } ,function(data)
 	{
 	  if(data=='no')  //login failed
 	  {
