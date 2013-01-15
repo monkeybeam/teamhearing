@@ -274,7 +274,9 @@ function displayFiles() {
 
 function SelectFile(fileobject) {
 	var fileindex = fileobject.id.substring(4,fileobject.id.length);
+	var filefullpath="http://www.teamaudiology.org/js/jqupload/server/php/files/" + jsonfiles[fileindex].filename;
 	document.getElementById("filedetail").innerHTML=jsonfiles[fileindex].uploaddate + " " + jsonfiles[fileindex].filename;
+	document.getElementById("fileimage").innerHTML="<img style='width:100%' src='"+filefullpath+"'>";
 }
 
 function displayResults() {
