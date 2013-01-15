@@ -252,6 +252,17 @@ function displayAssignments() {
 	document.getElementById("assignmentslist").innerHTML=mcontent;
 }
 
+function displayFiles() {
+	var myfilescount=0;
+	for (i=0;i<jsonfilescount;i++)
+	{
+		if (currentmemberid==jsonfiles[i].userid){
+			myfilescount=myfilescount+1;
+		}
+	}
+	document.getElementById("filescountshown").innerHTML=myfilescount + " out of " + jsonfilescount;	
+}
+
 function displayResults() {
 	var nowprotocolinstance="";
 	var onesetdetail="";
@@ -331,10 +342,8 @@ function SelectMember(userobject) {
 	document.getElementById("breadlevel2").innerHTML=currentfullname;
 		
 	GetJson("Education",currentmemberid,false);
-	GetJson("HistoryMine",currentmemberid,false);
 	GetJson("NotesMine",currentmemberid,false);
 	GetJson("AssignmentsMine",currentmemberid,false);
 	GetJson("ResultsMine",currentmemberid,true);
-	
-	GetJson("MeasuresMine",currentmemberid,false);
+	GetJson("Files");
 }
