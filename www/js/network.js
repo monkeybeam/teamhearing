@@ -171,6 +171,7 @@ function MobileLogin()
 	version=document.getElementById("version").value;
 	document.getElementById("msgbox").innerHTML="Validating...";
 	//Note: no difference in dbcontrol.php from pro and mobile versions
+	alert("before post");
 	$.post("https://www.teamaudiology.org/dbcontrol.php",{ action:'login',username:guestname,password:guestpassword,version:version,rand:Math.random() } ,function(data)
 	{
 	  if(1==2)  //login failed
