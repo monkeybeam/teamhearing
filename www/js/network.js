@@ -173,12 +173,13 @@ function MobileLogin()
 	//Note: no difference in dbcontrol.php from pro and mobile versions
 	$.post("https://www.teamaudiology.org/dbcontrol.php",{ action:'login',username:guestname,password:guestpassword,version:version,rand:Math.random() } ,function(data)
 	{
-	  if(data=='no')  //login failed
+	  if(1==2)  //login failed
 	  {
 		document.getElementById("msgbox").innerHTML="Your login detail failed..";
 	  }
 	  else //the login detail is correct
 	  {
+		alert("forced login");
 		document.getElementById("msgbox").innerHTML="Login for " + guestname + " succeeded.";
 		// Connect to Database
 		guestid=data;
