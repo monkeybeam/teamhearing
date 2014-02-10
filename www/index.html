@@ -26,7 +26,7 @@
 				There is no need to include the file physically in the code repository.  But, the index.html should
 				have the link reference here...
 		-->
-		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" src="phonegap.js"></script>
 		<!-- comment out these stylesheets from before codiqa merging
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 		-->
@@ -46,17 +46,6 @@
         <script src="js/codiqa.js"></script>		
 	</head>
     <body id='mainbody'>
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="audio.html">Audio</a></li> 
-				<li><a href="map.html">Map</a></li>
-				<li><a href="photos.html" class="ui-btn-active">Photo</a></li>
-				<li><a href="notes.html">Notes</a></li>
-                </ul>
-            </div>
-        </div>	
         <!-- Home -->
         <div data-role="page" id="page1" style="background: url('http://assets.codiqa.com/3lYRwQowRcW9vxRNe7iQ_background.png') no-repeat">
             <div data-theme="a" data-role="header">
@@ -74,7 +63,17 @@
                         </b>
                     </p>
                 </div>
-				
+				<div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+						<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="audio.html">Audio</a></li> 
+						<li><a href="map.html">Map</a></li>
+						<li><a href="photos.html" class="ui-btn-active">Photo</a></li>
+						<li><a href="notes.html">Notes</a></li>
+						</ul>
+					</fieldset>
+				</div>					
 				<div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="textinput1">
