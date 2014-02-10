@@ -31,7 +31,7 @@ var isIphone = false;
 var isIpad = false; 
 var isWindows = false; 
 // Store the device's uuid 
-var deviceUUID;
+var deviceUUID = "none";
 
 // This gets called by jQuery mobile when the page has loaded
 $(document).bind("pageload", function(event, data) {init(data.url);});
@@ -40,16 +40,12 @@ $(document).bind("pageload", function(event, data) {init(data.url);});
 window.onload = init;
  
 function init(url) {			
-	alert("before typeof call");
 	if (typeof url != 'string') { 
-		alert("before location");
 		currentUrl = location.href; 
-		alert("after location");
 	} else { 
 		currentUrl = url; 
 	} 
-	alert("init received url = " + currentUrl);
-	
+
 	if (isPhoneGapReady) { 
 		onDeviceReady(); 
 	} else { 
@@ -64,6 +60,7 @@ function init(url) {
 	alert("onDeviceReady 1");
 	isPhoneGapReady = true; 
 	// detect the device's platform 
+	alert(device.uuid);
 	deviceUUID = device.uuid;
 	alert("onDeviceReady 2");
 	deviceDetection();
