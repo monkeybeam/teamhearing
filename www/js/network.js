@@ -45,7 +45,7 @@ function init(url) {
 	} else { 
 		currentUrl = url; 
 	} 
-	alert("init received url = " + currenturl);
+	alert("init received url = " + currentUrl);
 	
 	if (isPhoneGapReady) { 
 		onDeviceReady(); 
