@@ -59,7 +59,10 @@ function init(url) {
 	// set to true 
 	alert("onDeviceReady 1");
 	isPhoneGapReady = true; 
+	alert("onDeviceReady 1.5");
+	alert(window.device.name);
 	// detect the device's platform 
+	alert(device.platform);
 	alert(device.uuid);
 	deviceUUID = device.uuid;
 	alert("onDeviceReady 2");
