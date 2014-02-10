@@ -40,12 +40,12 @@ $(document).bind("pageload", function(event, data) {init(data.url);});
 window.onload = init;
  
 function init(url) {
-	alert("init received url = " + url);
 	if (typeof url != 'string') { 
 		currentUrl = location.href; 
 	} else { 
 		currentUrl = url; 
 	} 
+	alert("init received url = " + currenturl);
 	
 	if (isPhoneGapReady) { 
 		onDeviceReady(); 
@@ -57,15 +57,20 @@ function init(url) {
 
  function onDeviceReady() {
 	// set to true 
+	alert("onDeviceReady 1");
 	isPhoneGapReady = true; 
 	// detect the device's platform 
 	deviceUUID = device.uuid;
+	alert("onDeviceReady 2");
 	deviceDetection();
 	// detect for network access 
+	alert("onDeviceReady 3");
 	networkDetection();
 	// execute any events at start up 
+	alert("onDeviceReady 4");
 	executeEvents(); 
 	// execute a callback function
+	alert("onDeviceReady 5");
 	executeCallback();
 	
 
@@ -73,6 +78,7 @@ function init(url) {
 	document.getElementById("checkdeviceplatform").innerHTML=device.platform;
 	document.getElementById("checknetworkconnected").innerHTML=isConnected;
 	document.getElementById("checkhighspeed").innerHTML=isHighSpeed;		
+	alert("onDeviceReady 6");
 	// This is an event handler function, which means the scope is the event.
 	// So, we must explicitly called `app.report()` instead of `this.report()`.
 	report('deviceready');
