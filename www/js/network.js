@@ -59,12 +59,11 @@ function init(url) {
 	// set to true 
 	alert("onDeviceReady 1");
 	isPhoneGapReady = true; 
-	alert("onDeviceReady 1.5");
-	alert(window.device.name);
+	//alert(window.device.name);
 	// detect the device's platform 
-	alert(device.platform);
-	alert(device.uuid);
-	deviceUUID = device.uuid;
+	//alert(device.platform);
+	//alert(device.uuid);
+	//deviceUUID = device.uuid;
 	alert("onDeviceReady 2");
 	deviceDetection();
 	// detect for network access 
@@ -124,7 +123,8 @@ function report(id) {
 	completeElem.className = completeElem.className.split('hide').join('');
 }
 
-function deviceDetection() { 
+function deviceDetection() {
+	alert("at deviceDetection");
 	if (isPhoneGapReady) { 
 		switch (device.platform) { 
 			case "Android": isAndroid = true; break; 
@@ -137,6 +137,7 @@ function deviceDetection() {
 }
 
 function networkDetection() { 
+	alert("in networkDetection");
 	if (isPhoneGapReady) { 
 	// as long as the connection type is not none, 
 	// the device should have Internet access 
