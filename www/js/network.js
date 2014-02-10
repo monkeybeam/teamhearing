@@ -40,6 +40,7 @@ $(document).bind("pageload", function(event, data) {init(data.url);});
 window.onload = init;
  
 function init(url) {
+	alert("init received url = " + url);
 	if (typeof url != 'string') { 
 		currentUrl = location.href; 
 	} else { 
@@ -192,6 +193,7 @@ function MobileLogin()
 	});
 	
 	*/
+	document.getElementById("msgbox").innerHTML="Login for " + guestname + " forced for now.";
 	return false; //not to post the  form physically
 }
 
