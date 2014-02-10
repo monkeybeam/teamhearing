@@ -53,6 +53,7 @@ function init(url) {
 	if (isPhoneGapReady) { 
 		onDeviceReady(); 
 	} else { 
+		alert("phonegap not ready event listener");
 		// Add an event listener for deviceready 
 		document.addEventListener("deviceready", onDeviceReady, false); 
 	}
