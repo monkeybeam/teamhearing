@@ -65,7 +65,7 @@ function init(url) {
 	//alert(device.uuid);
 	//deviceUUID = device.uuid;
 	alert("onDeviceReady 2");
-	deviceDetection();
+	//deviceDetection();
 	// detect for network access 
 	alert("onDeviceReady 3");
 	networkDetection();
