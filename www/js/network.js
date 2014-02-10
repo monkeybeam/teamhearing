@@ -165,6 +165,7 @@ function onResume() {
 
 function MobileLogin()
 {
+	alert("at MobileLogin");
 	//get variables
 	guestname=document.getElementById("username").value;
 	guestpassword=document.getElementById("password").value;
