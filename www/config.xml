@@ -13,8 +13,6 @@
         Dennis Bacsafra
     </author>
 
-    <feature name="http://api.phonegap.com/1.0/device" />
-
     <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
