@@ -22,7 +22,7 @@ var isPhoneGapReady = false;
 // Store the current network status 
 var isConnected = false;
 var isHighSpeed = false;
-var currentUrl;
+var currentUrl = "none";
 
 // Default all phone types to false 
 var isAndroid = false; 
@@ -39,9 +39,12 @@ $(document).bind("pageload", function(event, data) {init(data.url);});
 // Set an onload handler to call the init function 
 window.onload = init;
  
-function init(url) {
+function init(url) {			
+	alert("before typeof call");
 	if (typeof url != 'string') { 
+		alert("before location");
 		currentUrl = location.href; 
+		alert("after location");
 	} else { 
 		currentUrl = url; 
 	} 
